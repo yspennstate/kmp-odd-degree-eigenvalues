@@ -12,7 +12,7 @@
    k=3: direct 728.7500000000  formula 728.7500000000  diff 6.8e-13
    k=4: direct 726.2172739181  formula 726.2172739181  diff 2.3e-13
    k=5: direct 728.6434215672  formula 728.6434215672  diff 1.1e-13
-3. Other families (direct vs formula), k <= 9:
+3. Other families (direct vs formula), k <= 9 on at most five vertices, k <= 6 on six:
    n=4 groups=[[0, 1], [2, 3]] weights=[1, 5] k<=9: max diff so far 3.3e-15
    n=4 groups=[[0], [1], [2], [3]] weights=[1, 2, 3, 7] k<=9: max diff so far 7.1e-15
    n=5 groups=[[0, 1, 2], [3, 4]] weights=[17, 2] k<=9: max diff so far 1.0e-14

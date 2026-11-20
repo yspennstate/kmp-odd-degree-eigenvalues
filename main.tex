@@ -43,13 +43,13 @@ where $\MS(n,k)$ is the real vector space with the $k$-multisets as an orthonorm
 \[
 \omega_k(\Gamma)=\min\spec\bigl(L(\Gamma,\KMP_k)|_{\PURE(n,k)}\bigr),\qquad k\ge1,
 \]
-for the smallest eigenvalue that is new at level $k$.
+for the smallest eigenvalue that is new in degree $k$.
 
 \begin{conj}[{Alon and Puder~\cite[Conjecture~4.16]{AP26}}]\label{conj:AP}
 For every hypergraph $\Gamma$ with non-negative weights, $\omega_1\le\omega_3\le\omega_5\le\cdots$ and $\omega_2\le\omega_4\le\omega_6\le\cdots$.
 \end{conj}
 
-Alon and Puder proved both chains, with strict inequalities when $\Gamma$ is connected and $n\ge3$, for hypergraphs whose weight sits on sets of size $n-1$~\cite[Corollary~4.15]{AP26}. Caputo, Quattropani and Sau~\cite{CQS26} work with continuous exchange models that carry a positive parameter at each vertex; when every vertex parameter equals one, their pure degree-$k$ gaps, the gaps on the spaces of~\cite[(1.21)]{CQS26}, are the numbers $\omega_k$. They proved $\omega_k\ge\omega_{k-1}$ for odd $k\ge3$ and $\omega_k\ge\omega_{k-2}$ for even $k\ge4$~\cite[Remark~2.10, (2.50)]{CQS26}, which gives the even chain for every hypergraph~\cite[(2.51)]{CQS26}. Their results leave the odd chain open in the case of Conjecture~\ref{conj:AP}, and they show that it fails on complete graphs with $n\ge7$ vertices when every vertex parameter is a constant below $1-6/n$~\cite[Remark~2.10]{CQS26}. It also fails when every vertex parameter equals one.
+Alon and Puder proved both chains, with strict inequalities when $\Gamma$ is connected and $n\ge3$, for hypergraphs whose weight sits on sets of size $n-1$~\cite[Corollary~4.15]{AP26}. Caputo, Quattropani and Sau~\cite{CQS26} work with continuous exchange models that carry a positive parameter at each vertex; when every vertex parameter equals one, their pure degree-$k$ gaps, the gaps on the spaces of~\cite[(1.21)]{CQS26}, are the numbers $\omega_k$. They proved $\omega_k\ge\omega_{k-1}$ for odd $k\ge3$ and $\omega_k\ge\omega_{k-2}$ for even $k\ge4$~\cite[Remark~2.10, (2.50)]{CQS26}, which gives the even chain for every hypergraph~\cite[(2.51)]{CQS26}. Their main theorem~\cite[Theorem~1.1]{CQS26} says that the spectral gap of these models is attained on polynomials of degree at most two; when every vertex parameter equals one this settles~\cite[Conjecture~1.15]{AP26}. They also showed that the odd chain fails on complete graphs with $n\ge7$ vertices when every vertex parameter is a constant below $1-6/n$~\cite[Remark~2.10]{CQS26}, and the odd chain with every vertex parameter equal to one stayed open. Theorem~\ref{thm:example} shows that it fails there too, at the step from $\omega_3$ to $\omega_5$.
 
 \begin{thm}\label{thm:example}
 Let $\Gamma$ be the hypergraph on $[11]$ with the hyperedge $\{10,11\}$ of weight $17$ and the two hyperedges $[11]\setminus\{10\}$ and $[11]\setminus\{11\}$ of weight $715$. Then $\Gamma$ is connected and
@@ -69,7 +69,7 @@ The complements of the three hyperedges of this example, $\{1,\dots,9\}$, $\{10\
 Let $\Gamma$ and $M_k$ be as in~\eqref{eq:M}, with disjoint retained groups $A_1,\dots,A_m$ and weights $w_1,\dots,w_m$. For every $k\ge1$ the eigenvalues of $M_k$ are real and $\omega_k(\Gamma)=W-\lambda_{\max}(M_k)$.
 \end{thm}
 
-When the retained groups are singletons, $\Gamma$ is supported on sets of size $n-1$, the off-diagonal entries of $M_k$ are $(-1)^kw_i\binom{n+k-2}{k}^{-1}$, and $M_k$ agrees up to transposition with the matrix of~\cite[Proposition~4.8]{AP26}. In general $M_k$ is similar to the symmetric matrix $G_k=D^{1/2}R_kD^{1/2}$, where $D=\mathrm{diag}(w_1,\dots,w_m)$ and
+When the retained groups are singletons, $\Gamma$ is supported on sets of size $n-1$, the off-diagonal entries of $M_k$ are $(-1)^kw_i\binom{n+k-2}{k}^{-1}$, and $WI-M_k$ is the matrix denoted $M_k$ in~\cite[Proposition~4.8]{AP26}. In general $M_k$ is similar to the symmetric matrix $G_k=D^{1/2}R_kD^{1/2}$, where $D=\mathrm{diag}(w_1,\dots,w_m)$ and
 \begin{equation}\label{eq:R}
 \begin{gathered}(R_k)_{ii}=1,\qquad (R_k)_{ij}=(-1)^kt_it_j\quad(i\ne j),\\ t_i=t_i(k)=\Bigl(\frac{(a_i)_k}{(n-a_i)_k}\Bigr)^{1/2}.\end{gathered}
 \end{equation}
@@ -77,7 +77,11 @@ Passing from $k$ to $k+2$ multiplies $t_i$ by
 \begin{equation}\label{eq:u}
 u_i=u_i(k)=\Bigl(\frac{(a_i+k)(a_i+k+1)}{(n-a_i+k)(n-a_i+k+1)}\Bigr)^{1/2},
 \end{equation}
-so $G_{k+2}$ is the entrywise (Schur) product of $G_k$ with the matrix $H_k$ that has ones on the diagonal and $u_iu_j$ off the diagonal. Since $u_i\le1$ exactly when $a_i\le n/2$, the matrix $H_k=\mathrm{diag}(1-u_i^2)+uu^{\mathsf T}$ is positive semidefinite when every retained group has at most $n/2$ vertices, which covers the case of Alon and Puder. At most one retained group can have more than $n/2$ vertices; then $H_k$ may fail to be positive semidefinite, and for odd $k$ this is exactly when the inequality $\omega_k\le\omega_{k+2}$ can fail.
+so that
+\begin{equation}\label{eq:schur}
+G_{k+2}=G_k\circ H_k,\qquad (H_k)_{ii}=1,\quad (H_k)_{ij}=u_iu_j\ (i\ne j),
+\end{equation}
+where $\circ$ is the entrywise (Schur) product. Since $u_i\le1$ exactly when $a_i\le n/2$, the matrix $H_k=\mathrm{diag}(1-u_i^2)+uu^{\mathsf T}$ is positive semidefinite when every retained group has at most $n/2$ vertices, which covers the case of Alon and Puder. At most one retained group can have more than $n/2$ vertices; then $H_k$ may fail to be positive semidefinite, and for odd $k$ this is exactly when the inequality $\omega_k\le\omega_{k+2}$ can fail.
 
 \begin{thm}\label{thm:criterion}
 Fix $n$, $k\ge1$ and the sizes $a_1,\dots,a_m$ of $m\ge2$ disjoint retained groups.
@@ -100,7 +104,7 @@ For odd $k$, Theorems~\ref{thm:criterion} and~\ref{thm:psd} together decide from
 If every retained group has at most $n/2$ vertices, then $\omega_k\le\omega_{k+2}$ for all $k\ge1$ and all weights.
 \end{cor}
 
-For $k=1$ the inequality of Theorem~\ref{thm:psd} always holds, and the first odd step never fails on these hypergraphs.
+For $k=1$ the inequality of Theorem~\ref{thm:psd} always holds.
 
 \begin{thm}\label{thm:first}
 For all disjoint nonempty proper subsets $A_1,\dots,A_m$ of $[n]$ and all weights $w_1,\dots,w_m>0$, the hypergraph $\Gamma$ defined before~\eqref{eq:M} satisfies $\omega_1(\Gamma)\le\omega_3(\Gamma)$.
@@ -112,7 +116,7 @@ Let $n\ge4$ and let the retained groups have sizes $n-2$, $1$, $1$. For odd $k$ 
 
 Theorem~\ref{thm:example} is the case $n=11$, $k=3$ of Corollary~\ref{cor:family}: here the weights of Theorem~\ref{thm:criterion}(2) are $(4/169,\,220/221,\,220/221)$, which are proportional to $(17,715,715)$. Whether $\omega_1\le\omega_3$ holds for every hypergraph is open.
 
-Section~\ref{sec:prelim} collects the facts about uniform compositions that we use. Section~\ref{sec:groups} proves Theorem~\ref{thm:reduction}, Section~\ref{sec:criterion} proves Theorems~\ref{thm:criterion}, \ref{thm:psd} and~\ref{thm:first} and the two corollaries, and Section~\ref{sec:example} carries out the computation of Theorem~\ref{thm:example}.
+
 
 \section{Uniform compositions}\label{sec:prelim}
 
@@ -215,7 +219,7 @@ Finally, by~\eqref{eq:M} and Lemma~\ref{lem:transfer}(1), $(M_k)_{ij}=w_ic_{A_iA
 \end{proof}
 
 \begin{rem}
-The functions $\hat h_i$ can be linearly dependent; this happens when the retained groups cover $[n]$ and $k=1$. Theorem~\ref{thm:reduction} holds in this case as well: its proof uses only the Gram matrix $R_k$ of the $\psi_i$, not their independence.
+The functions $\hat h_i$ can be linearly dependent; this happens for instance when the retained groups cover $[n]$ and $k=1$. Theorem~\ref{thm:reduction} holds in this case as well: its proof uses only the Gram matrix $R_k$ of the $\psi_i$, not their independence.
 \end{rem}
 
 \section{The criterion}\label{sec:criterion}
@@ -237,7 +241,7 @@ Write $\delta_i=1-u_i^2$, so that $H_k=\mathrm{diag}(\delta_1,\dots,\delta_m)+uu
 \end{equation}
 If $a_1\le n/2$, all $\delta_i\ge0$, and $H_k$ is a sum of two positive semidefinite matrices. Let $a_1>n/2$. Since the groups are disjoint, $a_i\le n-a_1<n/2$ for $i\ge2$, so $\delta_1<0<\delta_i$ for $i\ge2$, and the numbers $\theta_k(a_i)$ for $i\ge2$ and $\theta_k(n-a_1)$ are defined and positive. For $z\in\R^m$ with $z_1=0$ and $z\ne0$ we have $z^{\mathsf T}H_kz\ge\sum_{i\ge2}\delta_iz_i^2>0$. Hence $H_k$ has at most one eigenvalue $\le0$: eigenvectors for two such eigenvalues would span a plane on which the quadratic form of $H_k$ is $\le0$, and this plane meets the hyperplane $\{z_1=0\}$ in a nonzero vector. So $H_k$ is positive semidefinite exactly when $\det H_k\ge0$. Since $\mathrm{diag}(\delta)^{-1}uu^{\mathsf T}$ has rank one and trace $\sum_iu_i^2/\delta_i$,
 \[
-\det H_k=\Bigl(\prod_{i=1}^md_i\Bigr)\Bigl(1+\sum_{i=1}^m\frac{u_i^2}{\delta_i}\Bigr),
+\det H_k=\Bigl(\prod_{i=1}^m\delta_i\Bigr)\Bigl(1+\sum_{i=1}^m\frac{u_i^2}{\delta_i}\Bigr),
 \]
 and $\prod_i\delta_i<0$. Thus $H_k$ is positive semidefinite if and only if $1+\sum_iu_i^2/\delta_i\le0$. By~\eqref{eq:u} and~\eqref{eq:d}, $u_i^2/\delta_i=\theta_k(a_i)/(n+2k+1)$ for $i\ge2$, and
 \[
@@ -300,7 +304,7 @@ which exceeds $10015/14$. Theorem~\ref{thm:reduction} gives $\omega_3=1447-2873/
 because $9868^2=97377424<97436329$; numerically $\omega_3-\omega_5=0.10657\ldots$. At $k=1$ the off-diagonal entries are $-17/2$ in the first row and $-1287/2$, $-143/2$ in the other two, and the same splitting gives the eigenvalues $1573/2$, $1321/2$ and $0$, so $\omega_1=1447-1573/2=1321/2$.
 \end{proof}
 
-The same computation gives $\omega_2=709.794\ldots$ and $\omega_4=726.217\ldots$, so that $\omega_1<\omega_2<\omega_4<\omega_5<\omega_3$; the inequalities $\omega_2\le\omega_3$, $\omega_4\le\omega_5$ and $\omega_2\le\omega_4$ are those of~\cite[(2.50)]{CQS26}. Dividing all weights by $1447$ gives a hypergraph whose weights sum to one and for which again $\omega_5<\omega_3$.
+The same computation gives $\omega_2=709.794\ldots$ and $\omega_4=726.217\ldots$, so that $\omega_1<\omega_2<\omega_4<\omega_5<\omega_3$; the inequalities $\omega_2\le\omega_3$, $\omega_4\le\omega_5$ and $\omega_2\le\omega_4$ are those of~\cite[(2.50)]{CQS26}.
 
 \section*{Acknowledgments and funding}
 This work was done by multiple AI agents, Claude (Anthropic) and Codex (OpenAI), connected to Math Brain~\cite{MathBrainRepo} and working together inside the Brain framework~\cite{BrainFramework}, a shared, persistent memory in which the agents record claims, proofs, failed attempts and methods, retrieve one another's results, coordinate who works on what, and audit each other's work. The method is described in~\cite{MathBrainPaper}.
@@ -311,7 +315,7 @@ The research presented in this paper was supported by the European Research Coun
 The author holds equity in Heights Labs and in Convex Nexus Capital and has a management role at Convex Nexus Capital.
 
 \section*{Data availability}
-The program \texttt{check\_kmp\_example.py}, which uses NumPy and SymPy, computes the characteristic polynomials of $M_1,\dots,M_5$ for the example and computes $\omega_1,\dots,\omega_5$ directly from the definition of $L(\Gamma,\KMP_k)$ and $\PURE(n,k)$, comparing them with Theorem~\ref{thm:reduction}. It makes the same comparison for seven other hypergraphs with disjoint retained groups on four to six vertices, for $k\le9$ on at most five vertices and $k\le6$ on six. It also compares the inequality of Theorem~\ref{thm:psd} with the eigenvalues of $H_k$ for every choice of two to four retained groups on at most $24$ vertices and every odd $k\le11$. The program and its output are in the repository \url{https://github.com/yspennstate/kmp-odd-degree-eigenvalues/tree/v1.0}.
+The program \texttt{check\_kmp\_example.py}, which uses NumPy and SymPy, computes the characteristic polynomials of $M_1,\dots,M_5$ for the example and computes $\omega_1,\dots,\omega_5$ directly from the definition of $L(\Gamma,\KMP_k)$ and $\PURE(n,k)$, comparing them with Theorem~\ref{thm:reduction}. It makes the same comparison for seven other hypergraphs with disjoint retained groups on four to six vertices, for $k\le9$ on at most five vertices and $k\le6$ on six. It also compares the inequality of Theorem~\ref{thm:psd} with the eigenvalues of $H_k$ for every choice of two to four retained groups on at most $24$ vertices and every odd $k\le11$. The program and its output are in the repository \url{https://github.com/yspennstate/kmp-odd-degree-eigenvalues/tree/v1.1}.
 
 \section*{Declaration of generative AI and AI-assisted technologies}
 The AI agents Claude (Anthropic) and Codex (OpenAI), working through Math Brain~\cite{MathBrainRepo,MathBrainPaper} on the Brain framework~\cite{BrainFramework}, produced the statements, proofs and computations of this paper under the author's direction. The conjecture is Alon and Puder's~\cite{AP26}, as are the operators $L(\Gamma,\KMP_k)$, the embedding $\iota_{k-1}$, the invariance of $\PURE(n,k)$ and the monotonicity for hyperedges of size $n-1$. The even chain is due to Caputo, Quattropani and Sau~\cite{CQS26}. The values in Theorem~\ref{thm:example} and Theorems~\ref{thm:reduction} and~\ref{thm:psd} were also checked numerically in the cases listed in the data availability statement. The author directed the work and is responsible for the content of the paper and for decisions concerning its dissemination.
