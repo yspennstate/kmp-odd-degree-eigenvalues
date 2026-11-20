@@ -1,0 +1,28 @@
+1. Eleven-vertex example: retained groups of sizes [9, 1, 1] weights [17, 715, 715] W = 1447
+   k=1: det(xI - M_k) = x*(2*x - 1573)*(2*x - 1321)/4
+   k=2: det(xI - M_k) = (x - 702)*(x**2 - 745*x + 5746)
+   k=3: det(xI - M_k) = (2*x - 21)*(4*x - 2873)**2/32
+   k=4: det(xI - M_k) = (x - 714)*(x**2 - 733*x + 8806)
+   k=5: det(xI - M_k) = (14*x - 10015)*(14*x**2 - 10243*x + 133620)/196
+   omega_3 = 2915/4  omega_5 = 30273/28 - sqrt(97436329)/28 = 728.643421567235
+   omega_3 - omega_5 = 0.106578432765238 > 0
+2. Direct computation of the pure spectrum, same example:
+   k=1: direct 660.5000000000  formula 660.5000000000  diff 5.7e-13
+   k=2: direct 709.7942967268  formula 709.7942967268  diff 3.4e-13
+   k=3: direct 728.7500000000  formula 728.7500000000  diff 6.8e-13
+   k=4: direct 726.2172739181  formula 726.2172739181  diff 2.3e-13
+   k=5: direct 728.6434215672  formula 728.6434215672  diff 1.1e-13
+3. Other families (direct vs formula), k <= 9:
+   n=4 groups=[[0, 1], [2, 3]] weights=[1, 5] k<=9: max diff so far 3.3e-15
+   n=4 groups=[[0], [1], [2], [3]] weights=[1, 2, 3, 7] k<=9: max diff so far 7.1e-15
+   n=5 groups=[[0, 1, 2], [3, 4]] weights=[17, 2] k<=9: max diff so far 1.0e-14
+   n=5 groups=[[0, 1, 2], [3], [4]] weights=[17, 40, 40] k<=9: max diff so far 2.8e-14
+   n=5 groups=[[0], [1], [2]] weights=[3, 1, 2] k<=9: max diff so far 2.8e-14
+   n=5 groups=[[0, 1], [2], [3], [4]] weights=[1, 9, 2, 5] k<=9: max diff so far 2.8e-14
+   n=6 groups=[[0, 1, 2], [3], [5]] weights=[2, 7, 3] k<=6: max diff so far 2.8e-14
+4. H_1 positive semidefinite for every size pattern with 2..4 groups, n <= 24:
+   patterns checked 7863, failures 0
+5. The size inequality of Theorem 1.5 against the eigenvalues of H_k, odd k <= 11,
+   2..4 retained groups, n <= 24:
+   identity (4.1) for 1 - u^2: True
+   cases 47178, disagreements 0, not positive semidefinite by k: {3: 27, 5: 52, 7: 92, 9: 119, 11: 148}

@@ -1,0 +1,331 @@
+\documentclass[11pt]{amsart}
+\usepackage{amsmath,amssymb,lmodern}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Odd-degree eigenvalues of the KMP process on hypergraphs},pdfauthor={Yitzchak Shmalo}}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{conj}[thm]{Conjecture}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{section}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\PURE}{\mathrm{PURE}}
+\newcommand{\MS}{\mathrm{MS}}
+\newcommand{\KMP}{\mathrm{KMP}}
+\newcommand{\ff}[2]{#1^{\underline{#2}}}
+\newcommand{\doi}[1]{doi:\href{https://doi.org/#1}{#1}}
+\DeclareMathOperator{\spec}{spec}
+
+\title[Odd-degree eigenvalues of KMP on hypergraphs]{Odd-degree eigenvalues of the KMP process on hypergraphs}
+\author[Yitzchak Shmalo]{Yitzchak Shmalo}
+\address{Einstein Institute of Mathematics, The Hebrew University of Jerusalem, Jerusalem, Israel}
+\email{yitzchak.shmalo@gmail.com}
+\subjclass[2020]{Primary 60J27; Secondary 15A18, 05C65, 82C22}
+\keywords{Kipnis--Marchioro--Presutti process, hypergraph, spectral gap, Aldous' spectral gap conjecture}
+
+\begin{document}
+
+\begin{abstract}
+For a weighted hypergraph on $n$ vertices, let $\omega_k$ be the smallest eigenvalue of the discrete Kipnis--Marchioro--Presutti Laplacian with $k$ particles on the orthogonal complement of the image of the space of $k-1$ particles. Alon and Puder conjectured that $\omega_1\le\omega_3\le\omega_5\le\cdots$ and $\omega_2\le\omega_4\le\cdots$ for every hypergraph; Caputo, Quattropani and Sau proved the even chain. We show that the odd chain fails: on eleven vertices, three hyperedges with weights $17$, $715$, $715$ give $\omega_3=2915/4>\omega_5$. When the complements $[n]\setminus B$ of the hyperedges $B$ are pairwise disjoint, $\omega_k$ is the total weight minus the largest eigenvalue of an explicit matrix with one row per hyperedge. For odd $k$ the inequality $\omega_k\le\omega_{k+2}$ then holds for all weights exactly when an explicit inequality between the sizes of the complements holds. For $k=1$ this inequality always holds, so that $\omega_1\le\omega_3$ for all these hypergraphs.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+
+A hypergraph $\Gamma=([n],w)$ is a set of non-negative weights $w_B$ on the subsets $B\subseteq[n]$. A set $B$ with $w_B>0$ is a hyperedge, and $\Gamma$ is connected if the graph on $[n]$ that joins two vertices lying in a common hyperedge is connected. In the discrete Kipnis--Marchioro--Presutti process with $k$ particles on $\Gamma$, introduced for the path graph in~\cite{KMP82} and in this generality by Alon and Puder~\cite[Definition~1.12]{AP26}, a configuration is a multiset of $k$ elements of $[n]$. Each subset $B$ rings at rate equal to its weight $w_B$, and the particles lying in $B$ are then replaced by a configuration of the same number of particles in $B$, chosen uniformly. The Laplacian is
+\[
+L(\Gamma,\KMP_k)=\sum_{B\subseteq[n]}w_B\,(I-N_B)\qquad\text{on }\MS(n,k),
+\]
+where $\MS(n,k)$ is the real vector space with the $k$-multisets as an orthonormal basis and $N_B$ is the averaging operator just described. Aldous' spectral gap conjecture for the interchange process~\cite{Ald92} was proved by Caputo, Liggett and Richthammer~\cite{CLR10}; Alon and Puder introduced these operators to study its analogue for random walks on the unitary group $U(n)$ driven by a hypergraph. They showed that the map $\iota_{k-1}\colon\MS(n,k-1)\to\MS(n,k)$ that adds a particle in every possible way is an embedding that commutes with every $N_B$, so that the orthogonal complement $\PURE(n,k)$ of its image is invariant under $L(\Gamma,\KMP_k)$~\cite[Proposition~3.13]{AP26}. Write
+\[
+\omega_k(\Gamma)=\min\spec\bigl(L(\Gamma,\KMP_k)|_{\PURE(n,k)}\bigr),\qquad k\ge1,
+\]
+for the smallest eigenvalue that is new at level $k$.
+
+\begin{conj}[{Alon and Puder~\cite[Conjecture~4.16]{AP26}}]\label{conj:AP}
+For every hypergraph $\Gamma$ with non-negative weights, $\omega_1\le\omega_3\le\omega_5\le\cdots$ and $\omega_2\le\omega_4\le\omega_6\le\cdots$.
+\end{conj}
+
+Alon and Puder proved both chains, with strict inequalities when $\Gamma$ is connected and $n\ge3$, for hypergraphs whose weight sits on sets of size $n-1$~\cite[Corollary~4.15]{AP26}. Caputo, Quattropani and Sau~\cite{CQS26} work with continuous exchange models that carry a positive parameter at each vertex; when every vertex parameter equals one, their pure degree-$k$ gaps, the gaps on the spaces of~\cite[(1.21)]{CQS26}, are the numbers $\omega_k$. They proved $\omega_k\ge\omega_{k-1}$ for odd $k\ge3$ and $\omega_k\ge\omega_{k-2}$ for even $k\ge4$~\cite[Remark~2.10, (2.50)]{CQS26}, which gives the even chain for every hypergraph~\cite[(2.51)]{CQS26}. Their results leave the odd chain open in the case of Conjecture~\ref{conj:AP}, and they show that it fails on complete graphs with $n\ge7$ vertices when every vertex parameter is a constant below $1-6/n$~\cite[Remark~2.10]{CQS26}. It also fails when every vertex parameter equals one.
+
+\begin{thm}\label{thm:example}
+Let $\Gamma$ be the hypergraph on $[11]$ with the hyperedge $\{10,11\}$ of weight $17$ and the two hyperedges $[11]\setminus\{10\}$ and $[11]\setminus\{11\}$ of weight $715$. Then $\Gamma$ is connected and
+\begin{gather*}
+\omega_1=\frac{1321}2,\qquad \omega_3=\frac{2915}4,\\
+\omega_5=1447-\frac{10243+\sqrt{97436329}}{28}=728.6434\ldots,
+\end{gather*}
+so that $\omega_5<\omega_3$.
+\end{thm}
+
+The complements of the three hyperedges of this example, $\{1,\dots,9\}$, $\{10\}$ and $\{11\}$, are pairwise disjoint, and for every hypergraph with this property $\omega_k$ is computed by a matrix with one row per hyperedge. Let $A_1,\dots,A_m$ be pairwise disjoint nonempty proper subsets of $[n]$ with $a_i=|A_i|$, let $w_1,\dots,w_m>0$, and let $\Gamma$ give weight $w_i$ to $B_i=[n]\setminus A_i$ and weight zero to all other sets. We call the $A_i$ the retained groups of $\Gamma$, since an update of $B_i$ keeps the particles of $A_i$ in place. Put $W=\sum_iw_i$, write $(a)_k=a(a+1)\cdots(a+k-1)$ for the rising factorial, and let $M_k$ be the $m\times m$ matrix
+\begin{equation}\label{eq:M}
+(M_k)_{ii}=w_i,\qquad (M_k)_{ij}=(-1)^k\,w_i\,\frac{(a_j)_k}{(n-a_i)_k}\quad(i\ne j).
+\end{equation}
+
+\begin{thm}\label{thm:reduction}
+Let $\Gamma$ and $M_k$ be as in~\eqref{eq:M}, with disjoint retained groups $A_1,\dots,A_m$ and weights $w_1,\dots,w_m$. For every $k\ge1$ the eigenvalues of $M_k$ are real and $\omega_k(\Gamma)=W-\lambda_{\max}(M_k)$.
+\end{thm}
+
+When the retained groups are singletons, $\Gamma$ is supported on sets of size $n-1$, the off-diagonal entries of $M_k$ are $(-1)^kw_i\binom{n+k-2}{k}^{-1}$, and $M_k$ agrees up to transposition with the matrix of~\cite[Proposition~4.8]{AP26}. In general $M_k$ is similar to the symmetric matrix $G_k=D^{1/2}R_kD^{1/2}$, where $D=\mathrm{diag}(w_1,\dots,w_m)$ and
+\begin{equation}\label{eq:R}
+\begin{gathered}(R_k)_{ii}=1,\qquad (R_k)_{ij}=(-1)^kt_it_j\quad(i\ne j),\\ t_i=t_i(k)=\Bigl(\frac{(a_i)_k}{(n-a_i)_k}\Bigr)^{1/2}.\end{gathered}
+\end{equation}
+Passing from $k$ to $k+2$ multiplies $t_i$ by
+\begin{equation}\label{eq:u}
+u_i=u_i(k)=\Bigl(\frac{(a_i+k)(a_i+k+1)}{(n-a_i+k)(n-a_i+k+1)}\Bigr)^{1/2},
+\end{equation}
+so $G_{k+2}$ is the entrywise (Schur) product of $G_k$ with the matrix $H_k$ that has ones on the diagonal and $u_iu_j$ off the diagonal. Since $u_i\le1$ exactly when $a_i\le n/2$, the matrix $H_k=\mathrm{diag}(1-u_i^2)+uu^{\mathsf T}$ is positive semidefinite when every retained group has at most $n/2$ vertices, which covers the case of Alon and Puder. At most one retained group can have more than $n/2$ vertices; then $H_k$ may fail to be positive semidefinite, and for odd $k$ this is exactly when the inequality $\omega_k\le\omega_{k+2}$ can fail.
+
+\begin{thm}\label{thm:criterion}
+Fix $n$, $k\ge1$ and the sizes $a_1,\dots,a_m$ of $m\ge2$ disjoint retained groups.
+\begin{enumerate}
+\item If $H_k$ is positive semidefinite, then $\omega_k(\Gamma)\le\omega_{k+2}(\Gamma)$ for every choice of the weights $w_1,\dots,w_m>0$.
+\item If $k$ is odd and $H_k$ is not positive semidefinite, then the weights $w_i=(1+t_i(k)^2)^{-1}$ give $\omega_{k+2}(\Gamma)<\omega_k(\Gamma)$.
+\end{enumerate}
+\end{thm}
+
+\begin{thm}\label{thm:psd}
+In the setting of Theorem~\ref{thm:criterion}, number the groups so that $a_1\ge a_2\ge\dots\ge a_m$, and for $0\le a<n/2$ put $\theta_k(a)=(a+k)(a+k+1)/(n-2a)$. Then $H_k$ is positive semidefinite if and only if either $a_1\le n/2$, or $a_1>n/2$ and
+\[
+\sum_{i=2}^m\theta_k(a_i)\le\theta_k(n-a_1).
+\]
+\end{thm}
+
+For odd $k$, Theorems~\ref{thm:criterion} and~\ref{thm:psd} together decide from $n$, $k$ and the sizes $a_i$ alone whether some weights give $\omega_{k+2}<\omega_k$.
+
+\begin{cor}\label{cor:half}
+If every retained group has at most $n/2$ vertices, then $\omega_k\le\omega_{k+2}$ for all $k\ge1$ and all weights.
+\end{cor}
+
+For $k=1$ the inequality of Theorem~\ref{thm:psd} always holds, and the first odd step never fails on these hypergraphs.
+
+\begin{thm}\label{thm:first}
+For all disjoint nonempty proper subsets $A_1,\dots,A_m$ of $[n]$ and all weights $w_1,\dots,w_m>0$, the hypergraph $\Gamma$ defined before~\eqref{eq:M} satisfies $\omega_1(\Gamma)\le\omega_3(\Gamma)$.
+\end{thm}
+
+\begin{cor}\label{cor:family}
+Let $n\ge4$ and let the retained groups have sizes $n-2$, $1$, $1$. For odd $k$ there are weights with $\omega_{k+2}<\omega_k$ if and only if $k(n-6)>n+2$. In particular every odd step $k\to k+2$ with $k\ge3$ can fail on eleven vertices, the step $3\to5$ fails for these sizes exactly when $n\ge11$, and every odd step from $k=11$ on fails already on seven vertices.
+\end{cor}
+
+Theorem~\ref{thm:example} is the case $n=11$, $k=3$ of Corollary~\ref{cor:family}: here the weights of Theorem~\ref{thm:criterion}(2) are $(4/169,\,220/221,\,220/221)$, which are proportional to $(17,715,715)$. Whether $\omega_1\le\omega_3$ holds for every hypergraph is open.
+
+Section~\ref{sec:prelim} collects the facts about uniform compositions that we use. Section~\ref{sec:groups} proves Theorem~\ref{thm:reduction}, Section~\ref{sec:criterion} proves Theorems~\ref{thm:criterion}, \ref{thm:psd} and~\ref{thm:first} and the two corollaries, and Section~\ref{sec:example} carries out the computation of Theorem~\ref{thm:example}.
+
+\section{Uniform compositions}\label{sec:prelim}
+
+For a finite set $C$ and $s\ge0$, a composition of $s$ indexed by $C$ is a vector in $\Z_{\ge0}^C$ with sum $s$. We identify a $k$-multiset of $[n]$ with its vector of multiplicities $\eta\in\Omega_k=\{\eta\in\Z_{\ge0}^n:\sum_x\eta_x=k\}$, the set of compositions of $k$ indexed by $[n]$, and a vector $v\in\MS(n,k)$ with the function $f(\eta)=\langle v,\eta\rangle$ on $\Omega_k$. The inner product of $\MS(n,k)$ becomes $\langle f,g\rangle=\sum_{\eta\in\Omega_k}f(\eta)g(\eta)$, which is a multiple of the inner product of $L^2(\mu_k)$ for the uniform probability $\mu_k$ on $\Omega_k$. For $C\subseteq[n]$ write $\eta|_C$ for the restriction of $\eta$ to $C$ and $T_C(\eta)=\sum_{x\in C}\eta_x$. As an operator on functions, $N_B$ averages $f$ over all $\xi\in\Omega_k$ with $\xi|_{[n]\setminus B}=\eta|_{[n]\setminus B}$, that is,
+\[
+N_Bf=\mathbb E_{\mu_k}\bigl[f\mid\eta|_{[n]\setminus B}\bigr],
+\]
+the orthogonal projection onto the functions of $\eta|_{[n]\setminus B}$. For a set $A\subseteq[n]$ we write $\Pi_A=N_{[n]\setminus A}$, the projection onto the functions of $\eta|_A$.
+
+The map $\iota_{k-1}$ sends a multiset $I$ to $\sum_x(\#_x(I)+1)(I+x)$~\cite[(3.5)]{AP26}, where $\#_x(I)$ is the multiplicity of $x$ in $I$, so on functions it is
+\begin{equation}\label{eq:iota}
+(\iota_{k-1}g)(\eta)=\sum_{x\in[n]}\eta_x\,g(\eta-e_x),\qquad g\colon\Omega_{k-1}\to\R,
+\end{equation}
+where $e_x$ is the unit vector of $\Z^n$ at $x$ and the terms with $\eta_x=0$ vanish. Its adjoint is $(\iota_{k-1}^*f)(\xi)=\sum_x(\xi_x+1)f(\xi+e_x)$. By~\cite[Proposition~3.13]{AP26}, $\PURE(n,k)=\ker\iota_{k-1}^*$ is invariant under $L(\Gamma,\KMP_k)$ for every $\Gamma$. Applied to the hypergraph with a single nonzero weight, this says that every $N_B$ maps $\PURE(n,k)$ into itself; since $N_B$ is self-adjoint, it also maps the image of $\iota_{k-1}$, which is $\PURE(n,k)^\perp$, into itself.
+
+We write $\ff xr=x(x-1)\cdots(x-r+1)$ for the falling factorial. In the next lemma $T_A(\xi)$ has a beta-binomial law, and the formula is the classical expression for its factorial moments~\cite[Chapter~6]{JKK05}; we include the short proof.
+
+\begin{lem}\label{lem:moment}
+Let $C$ be a finite set with $c$ elements, let $A\subseteq C$ have $a\ge1$ elements, let $s\ge0$, and let $\xi$ be chosen uniformly among the compositions of $s$ indexed by $C$. Then $\mathbb E\,\ff{T_A(\xi)}{r}=\ff sr\,(a)_r/(c)_r$ for every $r\ge0$.
+\end{lem}
+
+\begin{proof}
+The number of compositions of $x$ indexed by $A$ is the coefficient of $z^x$ in $(1-z)^{-a}$, and
+\[
+\sum_{x\ge0}\ff xr\binom{x+a-1}{a-1}z^x=z^r\frac{d^r}{dz^r}(1-z)^{-a}=(a)_r\,z^r(1-z)^{-a-r}.
+\]
+Multiplying by $(1-z)^{-(c-a)}$, which counts the compositions indexed by $C\setminus A$, and taking the coefficient of $z^s$ gives $\sum_\xi\ff{T_A(\xi)}r=(a)_r\binom{s+c-1}{s-r}$. Dividing by the number $\binom{s+c-1}{s}$ of compositions gives $(a)_r\,s!\,(c-1)!/((s-r)!\,(c+r-1)!)=\ff sr(a)_r/(c)_r$.
+\end{proof}
+
+\begin{lem}\label{lem:cond}
+Let $A,A'\subseteq[n]$ be disjoint and let $f$ be a function of $\eta|_A$ on $\Omega_k$.
+\begin{enumerate}
+\item Under $\mu_k$, conditionally on $\eta|_{[n]\setminus A}$, the restriction $\eta|_A$ is uniform among the compositions of $T_A$ indexed by $A$. Hence $N_Af=\bar f(T_A)$, where $\bar f(t)$ is the average of $f$ over the compositions of $t$ indexed by $A$.
+\item Conditionally on $\eta|_{A'}$, the restriction of $\eta$ to $[n]\setminus A'$ is uniform among the compositions of $k-T_{A'}$ indexed by $[n]\setminus A'$. Hence $\Pi_{A'}f=\mathbb E[\bar f(T_A)\mid T_{A'}]$ is a function of $T_{A'}$.
+\end{enumerate}
+\end{lem}
+
+\begin{proof}
+Both statements hold because $\mu_k$ is uniform and the configurations that agree with $\eta$ outside a set $C$ are exactly the compositions of $T_C(\eta)$ indexed by $C$, completed by $\eta$ outside $C$. In (2), the conditional law of $\eta|_A$ given $\eta|_{A'}$ is therefore obtained by first drawing $T_A$ from its conditional law given $T_{A'}$, and then drawing $\eta|_A$ uniformly among the compositions of $T_A$ indexed by $A$.
+\end{proof}
+
+\section{Disjoint retained groups}\label{sec:groups}
+
+Fix $k\ge1$ and a nonempty proper subset $A\subseteq[n]$ with $a$ elements. Let $F_A$ be the space of functions on $\Omega_k$ of the form $\varphi(T_A)$. Since $T_A$ takes every value in $\{0,\dots,k\}$, the space $F_A$ has dimension $k+1$ and consists of the polynomials of degree at most $k$ in $T_A$.
+
+\begin{lem}\label{lem:hA}
+$\PURE(n,k)\cap F_A$ is one-dimensional. It is spanned by the function
+\[
+h_A(\eta)=\frac{(-1)^{T_A}\binom k{T_A}}{m_A(T_A)},\qquad m_A(t)=\binom{t+a-1}{a-1}\binom{k-t+n-a-1}{n-a-1},
+\]
+where $m_A(t)$ is the number of $\eta\in\Omega_k$ with $T_A(\eta)=t$. The polynomials of degree less than $k$ in $T_A$ lie in $\PURE(n,k)^\perp$, and $F_A$ is the orthogonal direct sum of $\R h_A$ and these polynomials. In particular $h_A$ is a polynomial of degree exactly $k$ in $T_A$.
+\end{lem}
+
+\begin{proof}
+For $\xi\in\Omega_{k-1}$ with $T_A(\xi)=t$, the formula for $\iota^*_{k-1}$ gives
+\[
+(\iota_{k-1}^*h_A)(\xi)=(t+a)\,h_A(t+1)+(k-1-t+n-a)\,h_A(t),
+\]
+where $h_A(t)$ denotes the value of $h_A$ at $T_A=t$. From $\binom k{t+1}/\binom kt=(k-t)/(t+1)$ and $m_A(t)/m_A(t+1)=(t+1)(k-t+n-a-1)/((t+a)(k-t))$ we get $h_A(t+1)/h_A(t)=-(n-a+k-1-t)/(t+a)$, so $\iota_{k-1}^*h_A=0$ and $h_A\in\PURE(n,k)$.
+
+Let $0\le r\le k-1$ and apply~\eqref{eq:iota} to $g(\xi)=\ff{T_A(\xi)}r$ on $\Omega_{k-1}$. The terms with $x\in A$ contribute $T_A\,\ff{(T_A-1)}r=\ff{T_A}{r+1}$ and the others contribute $(k-T_A)\,\ff{T_A}r$, so
+\[
+\iota_{k-1}g=\ff{T_A}{r}\bigl((T_A-r)+(k-T_A)\bigr)=(k-r)\,\ff{T_A}r .
+\]
+Since $k-r\ne0$, every polynomial of degree less than $k$ in $T_A$ lies in the image of $\iota_{k-1}$, which is $\PURE(n,k)^\perp$. These polynomials form a subspace of $F_A$ of dimension $k$, and $h_A\ne0$ is orthogonal to it. Hence $F_A=\R h_A\oplus\{\text{polynomials of degree}<k\}$ orthogonally, and an element of $\PURE(n,k)\cap F_A$ is orthogonal to the second summand, so it is a multiple of $h_A$.
+\end{proof}
+
+Let $\hat h_A$ be the multiple of $h_A$ that is a monic polynomial of degree $k$ in $T_A$.
+
+\begin{lem}\label{lem:transfer}
+Let $A$ and $A'$ be disjoint nonempty proper subsets of $[n]$ with $a$ and $a'$ elements.
+\begin{enumerate}
+\item $\Pi_{A'}\hat h_A=c_{A'A}\,\hat h_{A'}$ with $c_{A'A}=(-1)^k(a)_k/(n-a')_k$.
+\item If $g\in\PURE(n,k)$ is a function of $\eta|_A$ and $\langle g,h_A\rangle=0$, then $\Pi_{A'}g=0$.
+\end{enumerate}
+\end{lem}
+
+\begin{proof}
+(1) By Lemma~\ref{lem:cond}(2), $\Pi_{A'}\hat h_A$ lies in $F_{A'}$, and it lies in $\PURE(n,k)$ because $\Pi_{A'}$ preserves that space; by Lemma~\ref{lem:hA} it equals $c\,\hat h_{A'}$ for some $c$. Write $\hat h_A=\ff{T_A}k+q(T_A)$ with $q$ of degree less than $k$. Then $q(T_A)\in\PURE(n,k)^\perp$, and so $\Pi_{A'}q(T_A)$ is an element of $F_{A'}\cap\PURE(n,k)^\perp$, which by Lemma~\ref{lem:hA} is a polynomial of degree less than $k$ in $T_{A'}$. Given $T_{A'}=t$, the configuration on $[n]\setminus A'$ is a uniform composition of $k-t$ with $n-a'$ parts, by Lemma~\ref{lem:cond}(2), and $A$ is contained in $[n]\setminus A'$. Lemma~\ref{lem:moment} gives
+\[
+\Pi_{A'}\ff{T_A}k=\ff{(k-t)}k\,\frac{(a)_k}{(n-a')_k},\qquad \ff{(k-t)}k=\prod_{j=1}^k(j-t)=(-1)^kt^k+\cdots.
+\]
+Comparing the coefficients of $t^k$ in $\Pi_{A'}\hat h_A=c\,\hat h_{A'}$ gives $c=(-1)^k(a)_k/(n-a')_k$.
+
+(2) By Lemma~\ref{lem:cond}(1), $N_Ag=\bar g(T_A)$ lies in $F_A$, and it lies in $\PURE(n,k)$; so $N_Ag=\gamma h_A$ for some $\gamma\in\R$. Since $N_A$ is self-adjoint and fixes $h_A$, we get $\gamma\langle h_A,h_A\rangle=\langle g,N_Ah_A\rangle$, and this equals $\langle g,h_A\rangle=0$. Hence $\bar g=0$, and $\Pi_{A'}g=\mathbb E[\bar g(T_A)\mid T_{A'}]=0$ by Lemma~\ref{lem:cond}(2).
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:reduction}]
+Write $\Pi_i=\Pi_{A_i}=N_{B_i}$, $\hat h_i=\hat h_{A_i}$ and $\psi_i=\hat h_i/\|\hat h_i\|$. On $\PURE(n,k)$ we have $L(\Gamma,\KMP_k)=W\,I-S$ with $S=\sum_iw_i\Pi_i$, so $\omega_k=W-\lambda_{\max}(S|_{\PURE(n,k)})$.
+
+Let $i\ne j$. By Lemma~\ref{lem:transfer}(1), $\Pi_j\psi_i$ is a multiple of $\psi_j$, and since $\Pi_j$ is self-adjoint and fixes $\psi_j$, the multiple is $\langle \psi_i,\psi_j\rangle$. Taking inner products with $\hat h_j$ and with $\hat h_i$ in Lemma~\ref{lem:transfer}(1) gives $\langle\hat h_i,\hat h_j\rangle=c_{A_jA_i}\|\hat h_j\|^2=c_{A_iA_j}\|\hat h_i\|^2$. Hence $\langle \psi_i,\psi_j\rangle^2=c_{A_jA_i}c_{A_iA_j}=t_i^2t_j^2$, and $\langle \psi_i,\psi_j\rangle$ has the sign $(-1)^k$ of $c_{A_jA_i}$, so $\langle \psi_i,\psi_j\rangle=(R_k)_{ij}$. Thus the span $V$ of $\psi_1,\dots,\psi_m$ is invariant under every $\Pi_j$, which acts on it as $x\mapsto\langle x,\psi_j\rangle \psi_j$. With $E\colon\R^m\to V$, $E\beta=\sum_i\beta_i\psi_i$, this says $S|_V=EDE^*$. The nonzero eigenvalues of $EDE^*$ are those of $D^{1/2}E^*ED^{1/2}=D^{1/2}R_kD^{1/2}=G_k$, with multiplicity. The diagonal entries of $G_k$ are the $w_i$, so $\lambda_{\max}(G_k)\ge\max_iw_i>0$ and $\lambda_{\max}(S|_V)=\lambda_{\max}(G_k)$.
+
+The orthogonal complement $V'$ of $V$ in $\PURE(n,k)$ is invariant under $S$. Let $f\in V'$ and $g_i=\Pi_if$. Then $g_i\in\PURE(n,k)$ is a function of $\eta|_{A_i}$, and $\langle g_i,h_{A_i}\rangle=\langle f,\Pi_ih_{A_i}\rangle=\langle f,h_{A_i}\rangle=0$. By Lemma~\ref{lem:transfer}(2), $\Pi_jg_i=0$ for $j\ne i$, so $\langle g_i,g_j\rangle=\langle\Pi_jg_i,g_j\rangle=0$. The $g_i$ are pairwise orthogonal and $\langle f,g_i\rangle=\|g_i\|^2$, so Bessel's inequality gives $\sum_i\|g_i\|^2\le\|f\|^2$, and
+\[
+\langle Sf,f\rangle=\sum_iw_i\|g_i\|^2\le\max_iw_i\,\|f\|^2\le\lambda_{\max}(G_k)\|f\|^2.
+\]
+Therefore $\lambda_{\max}(S|_{\PURE(n,k)})=\lambda_{\max}(G_k)$.
+
+Finally, by~\eqref{eq:M} and Lemma~\ref{lem:transfer}(1), $(M_k)_{ij}=w_ic_{A_iA_j}$ for $i\ne j$, and we showed that $c_{A_iA_j}=\langle\hat h_i,\hat h_j\rangle/\|\hat h_i\|^2=(R_k)_{ij}\|\hat h_j\|/\|\hat h_i\|$. With $P=\mathrm{diag}(\|\hat h_1\|,\dots,\|\hat h_m\|)$ this reads $M_k=P^{-1}DR_kP$, so $M_k$ is similar to $DR_k=D^{1/2}G_kD^{-1/2}$ and hence to $G_k$. Its eigenvalues are real and $\lambda_{\max}(M_k)=\lambda_{\max}(G_k)$.
+\end{proof}
+
+\begin{rem}
+The functions $\hat h_i$ can be linearly dependent; this happens when the retained groups cover $[n]$ and $k=1$. Theorem~\ref{thm:reduction} holds in this case as well: its proof uses only the Gram matrix $R_k$ of the $\psi_i$, not their independence.
+\end{rem}
+
+\section{The criterion}\label{sec:criterion}
+
+\begin{proof}[Proof of Theorem~\ref{thm:criterion}]
+By~\eqref{eq:R} and~\eqref{eq:u}, $t_i(k+2)=u_it_i(k)$, so $R_{k+2}=R_k\circ H_k$ and $G_{k+2}=G_k\circ H_k$, where $\circ$ is the entrywise (Schur) product. Let $\lambda=\lambda_{\max}(G_k)$.
+
+(1) The matrix $\lambda I-G_k$ is positive semidefinite, and so is $H_k$. By the Schur product theorem~\cite[Theorem~7.5.3]{HJ13} so is $(\lambda I-G_k)\circ H_k=\lambda I-G_{k+2}$, where we used that $H_k$ has ones on the diagonal. Hence $\lambda_{\max}(G_{k+2})\le\lambda$, and $\omega_{k+2}\ge\omega_k$ by Theorem~\ref{thm:reduction}.
+
+(2) Let $k$ be odd and $w_i=(1+t_i^2)^{-1}$ with $t_i=t_i(k)$. Then $R_k=\mathrm{diag}(1+t_i^2)-tt^{\mathsf T}$ and $G_k=I-vv^{\mathsf T}$ with $v_i=t_i(1+t_i^2)^{-1/2}$. Since $m\ge2$, the eigenvalue $1$ of $G_k$ occurs on $v^\perp\ne0$, and $\lambda_{\max}(G_k)=1$. Further $G_{k+2}=(I-vv^{\mathsf T})\circ H_k=I-\mathrm{diag}(v)H_k\,\mathrm{diag}(v)$. All $v_i$ are nonzero, so $\mathrm{diag}(v)H_k\,\mathrm{diag}(v)$ has a negative eigenvalue, $\lambda_{\max}(G_{k+2})>1$, and $\omega_{k+2}<\omega_k$.
+\end{proof}
+
+For even $k$ no weights give $\omega_{k+2}<\omega_k$, by the even chain~\cite[Remark~2.10, (2.51)]{CQS26}, even when $H_k$ is not positive semidefinite; this happens for instance for $k=4$ and the sizes $9,1,1$ on eleven vertices.
+
+\begin{proof}[Proof of Theorem~\ref{thm:psd}]
+Write $\delta_i=1-u_i^2$, so that $H_k=\mathrm{diag}(\delta_1,\dots,\delta_m)+uu^{\mathsf T}$. With $p=n-a_i+k$ and $q=a_i+k$ we have $p(p+1)-q(q+1)=(p-q)(p+q+1)$, and~\eqref{eq:u} gives
+\begin{equation}\label{eq:d}
+\delta_i=\frac{(n-2a_i)(n+2k+1)}{(n-a_i+k)(n-a_i+k+1)}.
+\end{equation}
+If $a_1\le n/2$, all $\delta_i\ge0$, and $H_k$ is a sum of two positive semidefinite matrices. Let $a_1>n/2$. Since the groups are disjoint, $a_i\le n-a_1<n/2$ for $i\ge2$, so $\delta_1<0<\delta_i$ for $i\ge2$, and the numbers $\theta_k(a_i)$ for $i\ge2$ and $\theta_k(n-a_1)$ are defined and positive. For $z\in\R^m$ with $z_1=0$ and $z\ne0$ we have $z^{\mathsf T}H_kz\ge\sum_{i\ge2}\delta_iz_i^2>0$. Hence $H_k$ has at most one eigenvalue $\le0$: eigenvectors for two such eigenvalues would span a plane on which the quadratic form of $H_k$ is $\le0$, and this plane meets the hyperplane $\{z_1=0\}$ in a nonzero vector. So $H_k$ is positive semidefinite exactly when $\det H_k\ge0$. Since $\mathrm{diag}(\delta)^{-1}uu^{\mathsf T}$ has rank one and trace $\sum_iu_i^2/\delta_i$,
+\[
+\det H_k=\Bigl(\prod_{i=1}^md_i\Bigr)\Bigl(1+\sum_{i=1}^m\frac{u_i^2}{\delta_i}\Bigr),
+\]
+and $\prod_i\delta_i<0$. Thus $H_k$ is positive semidefinite if and only if $1+\sum_iu_i^2/\delta_i\le0$. By~\eqref{eq:u} and~\eqref{eq:d}, $u_i^2/\delta_i=\theta_k(a_i)/(n+2k+1)$ for $i\ge2$, and
+\[
+\frac{u_1^2}{\delta_1}=-\frac{(a_1+k)(a_1+k+1)}{(2a_1-n)(n+2k+1)}.
+\]
+The same identity with $p=a_1+k$ and $q=n-a_1+k$ gives $(a_1+k)(a_1+k+1)=(2a_1-n)(n+2k+1)+(n-a_1+k)(n-a_1+k+1)$, and $n-2(n-a_1)=2a_1-n$, so $u_1^2/\delta_1=-1-\theta_k(n-a_1)/(n+2k+1)$. Therefore
+\[
+1+\sum_{i=1}^m\frac{u_i^2}{\delta_i}=\frac1{n+2k+1}\Bigl(\sum_{i=2}^m\theta_k(a_i)-\theta_k(n-a_1)\Bigr),
+\]
+and the theorem follows.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{cor:half}]
+If every $a_i\le n/2$, then $H_k$ is positive semidefinite by Theorem~\ref{thm:psd}, and Theorem~\ref{thm:criterion}(1) applies. With a single retained group, $M_k=(w_1)$ and $\omega_k=0$ for every $k$ by Theorem~\ref{thm:reduction}.
+\end{proof}
+
+Corollary~\ref{cor:half} contains the weak form of~\cite[Corollary~4.15]{AP26}, where all retained groups are singletons.
+
+\begin{proof}[Proof of Theorem~\ref{thm:first}]
+With a single retained group $\omega_1=\omega_3=0$. Let $m\ge2$ and number the groups as in Theorem~\ref{thm:psd}. If $a_1\le n/2$, Corollary~\ref{cor:half} applies, so let $a_1>n/2$. For integers $a,a'\ge1$ with $a+a'<n/2$ we have $n-2a>n-2a-2a'>0$, $n-2a'>n-2a-2a'$ and
+\[
+(a+a'+1)(a+a'+2)-(a+1)(a+2)-(a'+1)(a'+2)=2aa'-2\ge0,
+\]
+so $\theta_1(a)+\theta_1(a')\le\theta_1(a+a')$. All partial sums of $a_2,\dots,a_m$ are at most $n-a_1<n/2$, so by induction $\sum_{i\ge2}\theta_1(a_i)\le\theta_1(a_2+\dots+a_m)$. Since $\theta_1$ is increasing on $[0,n/2)$ and $a_2+\dots+a_m\le n-a_1$, we obtain $\sum_{i\ge2}\theta_1(a_i)\le\theta_1(n-a_1)$. By Theorem~\ref{thm:psd} the matrix $H_1$ is positive semidefinite, and Theorem~\ref{thm:criterion}(1) gives $\omega_1\le\omega_3$.
+\end{proof}
+
+\begin{rem}\label{rem:first}
+For $k\ge3$ the same computation gives $2aa'-k(k+1)$ in place of $2aa'-2$, and the inequality of Theorem~\ref{thm:psd} can fail. For $n=11$, $k=3$ and the sizes $9,1,1$ it reads $2\theta_3(1)=40/9\le\theta_3(2)=30/7$, which is false; this is the hypergraph of Theorem~\ref{thm:example}.
+\end{rem}
+
+\begin{proof}[Proof of Corollary~\ref{cor:family}]
+Let $a_1=n-2$ and $a_2=a_3=1$. If $n=4$, then $a_1\le n/2$ and no weights give $\omega_{k+2}<\omega_k$, in agreement with $k(n-6)=-2k<n+2$. Let $n\ge5$, so that $a_1>n/2$. By Theorems~\ref{thm:criterion} and~\ref{thm:psd}, for odd $k$ some weights give $\omega_{k+2}<\omega_k$ if and only if $2\theta_k(1)>\theta_k(2)$, that is,
+\[
+\frac{2(k+1)(k+2)}{n-2}>\frac{(k+2)(k+3)}{n-4}.
+\]
+Multiplying by $(n-2)(n-4)/(k+2)>0$, this reads $2(k+1)(n-4)>(k+3)(n-2)$, that is, $k(n-6)>n+2$. For $n=11$ this reads $5k>13$, true for all odd $k\ge3$. For $k=3$ it reads $n>10$. For $n=7$ it reads $k>9$. For $k=1$ it reads $-6>2$, which never holds.
+\end{proof}
+
+\section{The example}\label{sec:example}
+
+\begin{proof}[Proof of Theorem~\ref{thm:example}]
+The hyperedges $\{10,11\}$ and $[11]\setminus\{10\}$ meet, as do $\{10,11\}$ and $[11]\setminus\{11\}$, and together they cover $[11]$, so $\Gamma$ is connected. Its retained groups are $A_1=\{1,\dots,9\}$, $A_2=\{10\}$, $A_3=\{11\}$, with weights $17,715,715$ and $W=1447$. By~\eqref{eq:M},
+\[
+M_3=\begin{pmatrix}17&-\frac{17}4&-\frac{17}4\\[2pt]-\frac{2145}4&715&-\frac{13}4\\[2pt]-\frac{2145}4&-\frac{13}4&715\end{pmatrix},\qquad
+M_5=\begin{pmatrix}17&-\frac{17}6&-\frac{17}6\\[2pt]-\frac{6435}{14}&715&-\frac5{14}\\[2pt]-\frac{6435}{14}&-\frac5{14}&715\end{pmatrix}.
+\]
+For instance $(M_3)_{21}=-715\cdot(9\cdot10\cdot11)/(10\cdot11\cdot12)=-2145/4$ and $(M_5)_{23}=-715\cdot5!/(10\cdot11\cdot12\cdot13\cdot14)=-5/14$. The vector $(0,1,-1)$ is an eigenvector of $M_3$ with eigenvalue $715+13/4=2873/4$ and of $M_5$ with eigenvalue $715+5/14=10015/14$. The subspace spanned by $(1,0,0)$ and $(0,1,1)$ is invariant, and in that basis $M_3$ and $M_5$ act as
+\[
+\begin{pmatrix}17&-\frac{17}2\\[2pt]-\frac{2145}4&\frac{2847}4\end{pmatrix}\quad\text{and}\quad
+\begin{pmatrix}17&-\frac{17}3\\[2pt]-\frac{6435}{14}&\frac{10005}{14}\end{pmatrix},
+\]
+with characteristic polynomials $x^2-\frac{2915}4x+\frac{60333}8=(x-\frac{21}2)(x-\frac{2873}4)$ and $x^2-\frac{10243}{14}x+\frac{133620}{14}$. Hence $\lambda_{\max}(M_3)=2873/4$ and
+\[
+\lambda_{\max}(M_5)=\frac{10243+\sqrt{97436329}}{28},
+\]
+which exceeds $10015/14$. Theorem~\ref{thm:reduction} gives $\omega_3=1447-2873/4=2915/4$ and the stated value of $\omega_5$. Since $2873/4=20111/28$,
+\[
+\omega_3-\omega_5=\frac{\sqrt{97436329}-9868}{28}>0,
+\]
+because $9868^2=97377424<97436329$; numerically $\omega_3-\omega_5=0.10657\ldots$. At $k=1$ the off-diagonal entries are $-17/2$ in the first row and $-1287/2$, $-143/2$ in the other two, and the same splitting gives the eigenvalues $1573/2$, $1321/2$ and $0$, so $\omega_1=1447-1573/2=1321/2$.
+\end{proof}
+
+The same computation gives $\omega_2=709.794\ldots$ and $\omega_4=726.217\ldots$, so that $\omega_1<\omega_2<\omega_4<\omega_5<\omega_3$; the inequalities $\omega_2\le\omega_3$, $\omega_4\le\omega_5$ and $\omega_2\le\omega_4$ are those of~\cite[(2.50)]{CQS26}. Dividing all weights by $1447$ gives a hypergraph whose weights sum to one and for which again $\omega_5<\omega_3$.
+
+\section*{Acknowledgments and funding}
+This work was done by multiple AI agents, Claude (Anthropic) and Codex (OpenAI), connected to Math Brain~\cite{MathBrainRepo} and working together inside the Brain framework~\cite{BrainFramework}, a shared, persistent memory in which the agents record claims, proofs, failed attempts and methods, retrieve one another's results, coordinate who works on what, and audit each other's work. The method is described in~\cite{MathBrainPaper}.
+
+The research presented in this paper was supported by the European Research Council (ERC) under the European Union's Horizon Europe research and innovation program (grant agreement No.~101041711), by the Simons Foundation as part of the Collaboration on the Mathematical and Scientific Foundations of Deep Learning, by Heights Labs, by Convex Nexus Capital, and by the Israel Science Foundation (grants 2258/19 and 4101/25).
+
+\section*{Declaration of competing interest}
+The author holds equity in Heights Labs and in Convex Nexus Capital and has a management role at Convex Nexus Capital.
+
+\section*{Data availability}
+The program \texttt{check\_kmp\_example.py}, which uses NumPy and SymPy, computes the characteristic polynomials of $M_1,\dots,M_5$ for the example and computes $\omega_1,\dots,\omega_5$ directly from the definition of $L(\Gamma,\KMP_k)$ and $\PURE(n,k)$, comparing them with Theorem~\ref{thm:reduction}. It makes the same comparison for seven other hypergraphs with disjoint retained groups on four to six vertices, for $k\le9$ on at most five vertices and $k\le6$ on six. It also compares the inequality of Theorem~\ref{thm:psd} with the eigenvalues of $H_k$ for every choice of two to four retained groups on at most $24$ vertices and every odd $k\le11$. The program and its output are in the repository \url{https://github.com/yspennstate/kmp-odd-degree-eigenvalues/tree/v1.0}.
+
+\section*{Declaration of generative AI and AI-assisted technologies}
+The AI agents Claude (Anthropic) and Codex (OpenAI), working through Math Brain~\cite{MathBrainRepo,MathBrainPaper} on the Brain framework~\cite{BrainFramework}, produced the statements, proofs and computations of this paper under the author's direction. The conjecture is Alon and Puder's~\cite{AP26}, as are the operators $L(\Gamma,\KMP_k)$, the embedding $\iota_{k-1}$, the invariance of $\PURE(n,k)$ and the monotonicity for hyperedges of size $n-1$. The even chain is due to Caputo, Quattropani and Sau~\cite{CQS26}. The values in Theorem~\ref{thm:example} and Theorems~\ref{thm:reduction} and~\ref{thm:psd} were also checked numerically in the cases listed in the data availability statement. The author directed the work and is responsible for the content of the paper and for decisions concerning its dissemination.
+
+\begin{thebibliography}{99}
+\bibitem{Ald92} D.~Aldous, Spectral gap for the interchange (exclusion) process on a finite graph, open problem, 1992, \url{https://www.stat.berkeley.edu/users/aldous/Research/OP/sgap.html}.
+\bibitem{AP26} G.~Alon and D.~Puder, Aldous-type spectral gaps in unitary groups, preprint, 2026, arXiv:2603.00353.
+\bibitem{CLR10} P.~Caputo, T.~M. Liggett and T.~Richthammer, Proof of Aldous' spectral gap conjecture, \emph{J. Amer. Math. Soc.} \textbf{23} (2010), 831--851, \doi{10.1090/S0894-0347-10-00659-4}.
+\bibitem{CQS26} P.~Caputo, M.~Quattropani and F.~Sau, Aldous' spectral gap phenomena in stochastic exchange models, preprint, 2026, arXiv:2609.10450.
+\bibitem{HJ13} R.~A. Horn and C.~R. Johnson, \emph{Matrix Analysis}, 2nd ed., Cambridge University Press, Cambridge, 2013.
+\bibitem{JKK05} N.~L. Johnson, A.~W. Kemp and S.~Kotz, \emph{Univariate Discrete Distributions}, 3rd ed., Wiley, Hoboken, NJ, 2005, \doi{10.1002/0471715816}.
+\bibitem{KMP82} C.~Kipnis, C.~Marchioro and E.~Presutti, Heat flow in an exactly solvable model, \emph{J. Stat. Phys.} \textbf{27} (1982), 65--74, \doi{10.1007/BF01011740}.
+\bibitem{MathBrainRepo} Y.~Shmalo, \emph{Math Brain: public snapshot, code and tests}, 2026, \url{https://github.com/yspennstate/math-brain-public}.
+\bibitem{MathBrainPaper} Y.~Shmalo, \emph{Math Brain: shared, auditable memory for multi-agent mathematical research}, October 2026, \url{https://github.com/yspennstate/math-brain-public/tree/main/papers/math-brain-2026-10-24}, \doi{10.5281/zenodo.24150837}.
+\bibitem{BrainFramework} Y.~Shmalo, \emph{Brain Framework}, public software repository, 2026, \url{https://github.com/yspennstate/brain-framework-public}.
+\end{thebibliography}
+\end{document}
