@@ -28,28 +28,28 @@
 \begin{document}
 
 \begin{abstract}
-For a weighted hypergraph on $n$ vertices, let $\omega_k$ be the smallest eigenvalue of the discrete Kipnis--Marchioro--Presutti Laplacian with $k$ particles on the orthogonal complement of the image of the space of $k-1$ particles. Alon and Puder conjectured that $\omega_1\le\omega_3\le\omega_5\le\cdots$ (the odd chain) and $\omega_2\le\omega_4\le\cdots$ (the even chain) for every hypergraph; Caputo, Quattropani and Sau proved the even chain. We show that the odd chain fails: on eleven vertices, three hyperedges with weights $17$, $715$, $715$ give $\omega_3=2915/4>\omega_5$. When the complements $[n]\setminus B$ of the hyperedges $B$ are pairwise disjoint, $\omega_k$ is the total weight minus the largest eigenvalue of an explicit matrix with one row per hyperedge. For odd $k$ the inequality $\omega_k\le\omega_{k+2}$ then holds for all weights exactly when an explicit inequality between the sizes of the complements holds. For $k=1$ this inequality always holds, so that $\omega_1\le\omega_3$ for all these hypergraphs.
+For a weighted hypergraph on $n$ vertices, let $\omega_k$ be the smallest eigenvalue of the discrete Kipnis--Marchioro--Presutti Laplacian with $k$ particles on the orthogonal complement of the image of the space of $k-1$ particles. Alon and Puder conjectured that $\omega_1\le\omega_3\le\omega_5\le\cdots$ (the odd chain) and $\omega_2\le\omega_4\le\cdots$ (the even chain) for every hypergraph; Caputo, Quattropani and Sau proved the even chain. We show that the odd chain fails: on eleven vertices, three hyperedges with weights $17$, $715$, $715$ give $\omega_3=2915/4>\omega_5$. When the complements $[n]\setminus B$ of the hyperedges $B$ are pairwise disjoint, $\omega_k$ is the total weight minus the largest eigenvalue of an explicit matrix with one row per hyperedge. For odd $k$ the inequality $\omega_k\le\omega_{k+2}$ then holds for all weights exactly when an inequality between the sizes of the complements holds. For $k=1$ this inequality always holds, so that $\omega_1\le\omega_3$ for all these hypergraphs.
 \end{abstract}
 
 \maketitle
 
 \section{Introduction}
 
-A hypergraph $\Gamma=([n],w)$ is a set of non-negative weights $w_B$ on the subsets $B\subseteq[n]$. A set $B$ with $w_B>0$ is a hyperedge, and $\Gamma$ is connected if the graph on $[n]$ that joins two vertices lying in a common hyperedge is connected. In the discrete Kipnis--Marchioro--Presutti process with $k$ particles on $\Gamma$, introduced for the path graph in~\cite{KMP82} and in this generality by Alon and Puder~\cite[Definition~1.12]{AP26}, a configuration is a multiset of $k$ elements of $[n]$. Each subset $B$ rings at rate equal to its weight $w_B$, and the particles lying in $B$ are then replaced by a configuration of the same number of particles in $B$, chosen uniformly. The Laplacian is
+A hypergraph $\Gamma=([n],w)$ is a set of non-negative weights $w_B$ on the subsets $B\subseteq[n]$. A set $B$ with $w_B>0$ is a hyperedge, and $\Gamma$ is connected if the graph on $[n]$ that joins two vertices lying in a common hyperedge is connected. In the discrete Kipnis--Marchioro--Presutti process with $k$ particles on $\Gamma$, introduced for the path graph in~\cite{KMP82} and in this generality by Alon and Puder~\cite[Definition~1.12]{AP26}, a configuration is a multiset of $k$ elements of $[n]$. Each subset $B$ is updated at rate $w_B$, and the particles lying in $B$ are then replaced by a configuration of the same number of particles in $B$, chosen uniformly. The Laplacian is
 \[
 L(\Gamma,\KMP_k)=\sum_{B\subseteq[n]}w_B\,(I-N_B)\qquad\text{on }\MS(n,k),
 \]
-where $\MS(n,k)$ is the real vector space with the $k$-multisets as an orthonormal basis and $N_B$ is the averaging operator just described. Aldous' spectral gap conjecture for the interchange process~\cite{Ald92} was proved by Caputo, Liggett and Richthammer~\cite{CLR10}; Alon and Puder introduced these operators to study its analogue for random walks on the unitary group $U(n)$ driven by a hypergraph. They showed that the map $\iota_{k-1}\colon\MS(n,k-1)\to\MS(n,k)$ that adds a particle in every possible way is an embedding that commutes with every $N_B$, so that the orthogonal complement $\PURE(n,k)$ of its image is invariant under $L(\Gamma,\KMP_k)$~\cite[Proposition~3.13]{AP26}. Write
+where $\MS(n,k)$ is the real vector space with the $k$-multisets as an orthonormal basis and $N_B$ is the averaging operator just described. Aldous' conjecture~\cite{Ald92}, that the spectral gap of the interchange process on a weighted graph equals that of the random walk of a single particle, was proved by Caputo, Liggett and Richthammer~\cite{CLR10}. Alon and Puder introduced these operators to study its analogue for random walks on the unitary group $U(n)$ driven by a hypergraph. They showed that the map $\iota_{k-1}\colon\MS(n,k-1)\to\MS(n,k)$ that adds a particle in every possible way is an embedding that commutes with every $N_B$, so that the orthogonal complement $\PURE(n,k)$ of its image is invariant under $L(\Gamma,\KMP_k)$~\cite[Proposition~3.13]{AP26}. Write
 \[
 \omega_k(\Gamma)=\min\spec\bigl(L(\Gamma,\KMP_k)|_{\PURE(n,k)}\bigr),\qquad k\ge1,
 \]
-for the smallest eigenvalue that is new in degree $k$.
+for the smallest eigenvalue that is new in degree $k$; we call the number $k$ of particles the degree.
 
 \begin{conj}[{Alon and Puder~\cite[Conjecture~4.16]{AP26}}]\label{conj:AP}
 For every hypergraph $\Gamma$ with non-negative weights, $\omega_1\le\omega_3\le\omega_5\le\cdots$ (the odd chain) and $\omega_2\le\omega_4\le\omega_6\le\cdots$ (the even chain).
 \end{conj}
 
-Alon and Puder proved both chains, with strict inequalities when $\Gamma$ is connected and $n\ge3$, for hypergraphs whose weight sits on sets of size $n-1$~\cite[Corollary~4.15]{AP26}. Caputo, Quattropani and Sau~\cite{CQS26} work with continuous exchange models that carry a positive parameter at each vertex; when every vertex parameter equals one, their pure degree-$k$ gaps, the gaps on the spaces of~\cite[(1.21)]{CQS26}, are the numbers $\omega_k$. They proved $\omega_k\ge\omega_{k-1}$ for odd $k\ge3$ and $\omega_k\ge\omega_{k-2}$ for even $k\ge4$~\cite[Remark~2.10, (2.50)]{CQS26}, which gives the even chain for every hypergraph~\cite[(2.51)]{CQS26}. Their main theorem~\cite[Theorem~1.1]{CQS26} says that the spectral gap of these models is attained on polynomials of degree at most two; when every vertex parameter equals one this settles~\cite[Conjecture~1.15]{AP26}. They also showed that the odd chain fails on complete graphs with $n\ge7$ vertices when every vertex parameter is a constant below $1-6/n$~\cite[Remark~2.10]{CQS26}, and the odd chain with every vertex parameter equal to one stayed open. Theorem~\ref{thm:example} shows that it fails there too, at the step from $\omega_3$ to $\omega_5$.
+Alon and Puder proved both chains, with strict inequalities when $\Gamma$ is connected and $n\ge3$, for hypergraphs whose weight sits on sets of size $n-1$~\cite[Corollary~4.15]{AP26}. Caputo, Quattropani and Sau~\cite{CQS26} work with continuous exchange models that carry a positive parameter at each vertex; when every vertex parameter equals one, their pure degree-$k$ gaps, the gaps on the spaces of~\cite[(1.21)]{CQS26}, are the numbers $\omega_k$. They proved $\omega_{k-1}\le\omega_k$ for odd $k\ge3$ and the even chain $\omega_{k-2}\le\omega_k$ for even $k\ge4$, for every hypergraph~\cite[Remark~2.10, (2.50)--(2.51)]{CQS26}. Their main theorem~\cite[Theorem~1.1]{CQS26} says that the spectral gap of these models is attained on polynomials of degree at most two; when every vertex parameter equals one this settles~\cite[Conjecture~1.15]{AP26}. They also showed that the odd chain fails on complete graphs with $n\ge7$ vertices when every vertex parameter is a constant below $1-6/n$~\cite[Remark~2.10]{CQS26}, and the odd chain with every vertex parameter equal to one was open. Theorem~\ref{thm:example} shows that it fails there too, at the step from $\omega_3$ to $\omega_5$.
 
 \begin{thm}\label{thm:example}
 Let $\Gamma$ be the hypergraph on $[11]$ with the hyperedge $\{10,11\}$ of weight $17$ and the two hyperedges $[11]\setminus\{10\}$ and $[11]\setminus\{11\}$ of weight $715$. Then $\Gamma$ is connected and
@@ -69,7 +69,7 @@ The complements of the three hyperedges of this example, $\{1,\dots,9\}$, $\{10\
 Let $\Gamma$ be the hypergraph defined before~\eqref{eq:M} and $M_k$ the matrix~\eqref{eq:M}. For every $k\ge1$ the eigenvalues of $M_k$ are real and $\omega_k(\Gamma)=W-\lambda_{\max}(M_k)$.
 \end{thm}
 
-When the retained groups are singletons, $\Gamma$ is supported on sets of size $n-1$, the off-diagonal entries of $M_k$ are $(-1)^kw_i\binom{n+k-2}{k}^{-1}$, and, when every set of size $n-1$ has positive weight, $WI-M_k$ agrees with the matrix denoted $M_k$ in~\cite[Proposition~4.8]{AP26}. In general $M_k$ is similar to the symmetric matrix $G_k=D^{1/2}R_kD^{1/2}$, where $D=\mathrm{diag}(w_1,\dots,w_m)$ and
+When the retained groups are singletons, $\Gamma$ is supported on sets of size $n-1$, the off-diagonal entries of $M_k$ are $(-1)^kw_i\binom{n+k-2}{k}^{-1}$, and, when every set of size $n-1$ has positive weight, $WI-M_k$ agrees with the matrix of~\cite[Proposition~4.8]{AP26}. In general $M_k$ is similar to the symmetric matrix $G_k=D^{1/2}R_kD^{1/2}$, where $D=\mathrm{diag}(w_1,\dots,w_m)$ and
 \begin{equation}\label{eq:R}
 \begin{gathered}(R_k)_{ii}=1,\qquad (R_k)_{ij}=(-1)^kt_it_j\quad(i\ne j),\\ t_i=t_i(k)=\Bigl(\frac{(a_i)_k}{(n-a_i)_k}\Bigr)^{1/2}.\end{gathered}
 \end{equation}
@@ -81,7 +81,7 @@ so that
 \begin{equation}\label{eq:schur}
 G_{k+2}=G_k\circ H_k,\qquad (H_k)_{ii}=1,\quad (H_k)_{ij}=u_iu_j\ (i\ne j),
 \end{equation}
-where $\circ$ is the entrywise (Schur) product. Since $u_i\le1$ exactly when $a_i\le n/2$, the matrix $H_k=\mathrm{diag}(1-u_i^2)+uu^{\mathsf T}$, with $u=(u_1,\dots,u_m)$, is positive semidefinite when every retained group has at most $n/2$ vertices, which covers the case of Alon and Puder. Their proof is different: when the retained groups are singletons the matrix $M_k$ depends on $k$ only through the single number $(-1)^k\binom{n+k-2}{k}^{-1}$, and Alon and Puder derive the chains from the fact that the largest eigenvalue of $M_k$ decreases strictly as this number moves towards $0$ from either side~\cite[\S4.1]{AP26}. For groups of different sizes the numbers $t_i(k)$ depend on $i$, there is no single parameter, and the identity~\eqref{eq:schur} takes the place of that monotonicity argument; it gives the inequalities in weak form. At most one retained group can have more than $n/2$ vertices; then $H_k$ may fail to be positive semidefinite, and for odd $k$ this is exactly when the inequality $\omega_k\le\omega_{k+2}$ can fail.
+where $\circ$ is the entrywise (Schur) product. Since $u_i\le1$ exactly when $a_i\le n/2$, the matrix $H_k=\mathrm{diag}(1-u_i^2)+uu^{\mathsf T}$, with $u=(u_1,\dots,u_m)$, is positive semidefinite when every retained group has at most $n/2$ vertices, which covers the case of Alon and Puder. Their proof is different: when the retained groups are singletons the matrix $M_k$ depends on $k$ only through the single number $(-1)^k\binom{n+k-2}{k}^{-1}$, and Alon and Puder derive the chains~\cite[\S4.1]{AP26} from the fact that, in our notation, the largest eigenvalue of $M_k$ decreases strictly as this number moves towards $0$ from either side. For groups of different sizes the numbers $t_i(k)$ depend on $i$, there is no single parameter, and the identity~\eqref{eq:schur} takes the place of that monotonicity argument; it gives the inequalities with $\le$ in place of $<$. At most one retained group can have more than $n/2$ vertices; then $H_k$ may fail to be positive semidefinite, and for odd $k$ this is exactly when the inequality $\omega_k\le\omega_{k+2}$ can fail.
 
 \begin{thm}\label{thm:criterion}
 Fix $n$, $k\ge1$ and the sizes $a_1,\dots,a_m$ of $m\ge2$ disjoint retained groups.
@@ -92,7 +92,7 @@ Fix $n$, $k\ge1$ and the sizes $a_1,\dots,a_m$ of $m\ge2$ disjoint retained grou
 \end{thm}
 
 \begin{thm}\label{thm:psd}
-In the setting of Theorem~\ref{thm:criterion}, number the retained groups so that $a_1\ge a_2\ge\dots\ge a_m$, and for $0\le a<n/2$ put $\theta_k(a)=(a+k)(a+k+1)/(n-2a)$. Then $H_k$ is positive semidefinite if and only if either $a_1\le n/2$, or $a_1>n/2$ and
+In the setting of Theorem~\ref{thm:criterion}, number the retained groups so that $a_1\ge a_2\ge\dots\ge a_m$, and for $0\le a<n/2$ put, with $n$ fixed, $\theta_k(a)=(a+k)(a+k+1)/(n-2a)$. Then $H_k$ is positive semidefinite if and only if either $a_1\le n/2$, or $a_1>n/2$ and
 \[
 \sum_{i=2}^m\theta_k(a_i)\le\theta_k(n-a_1).
 \]
@@ -197,7 +197,7 @@ Let $A$ and $A'$ be disjoint nonempty proper subsets of $[n]$ with $a$ and $a'$ 
 For $A=\{y\}$ and $A'=\{x\}$, $h_A$ is a multiple of the vector $g_{k,y}$ of Alon and Puder~\cite[Lemma~4.5]{AP26}, and part~(1) is~\cite[Lemma~4.6]{AP26}.
 
 \begin{proof}
-(1) By Lemma~\ref{lem:cond}(2), $\Pi_{A'}\hat h_A$ lies in $F_{A'}$, and it lies in $\PURE(n,k)$ because $\Pi_{A'}$ preserves that space; by Lemma~\ref{lem:hA} it equals $\gamma\,\hat h_{A'}$ for some $\gamma\in\R$. Write $\hat h_A=\ff{T_A}k+q(T_A)$ with $q$ of degree less than $k$. Then $q(T_A)\in\PURE(n,k)^\perp$, and so $\Pi_{A'}q(T_A)$ is an element of $F_{A'}\cap\PURE(n,k)^\perp$, which by Lemma~\ref{lem:hA} is a polynomial of degree less than $k$ in $T_{A'}$. Given $T_{A'}=t$, the configuration on $[n]\setminus A'$ is a uniform composition of $k-t$ with $n-a'$ parts, by Lemma~\ref{lem:cond}(2), and $A$ is contained in $[n]\setminus A'$. Lemma~\ref{lem:moment} gives
+(1) By Lemma~\ref{lem:cond}(2), $\Pi_{A'}\hat h_A$ lies in $F_{A'}$, and it lies in $\PURE(n,k)$ because $\Pi_{A'}$ preserves that space; by Lemma~\ref{lem:hA} it equals $\gamma\,\hat h_{A'}$ for some $\gamma\in\R$. Write $\hat h_A=\ff{T_A}k+q(T_A)$ with $q$ of degree less than $k$. Then $q(T_A)\in\PURE(n,k)^\perp$, and so $\Pi_{A'}q(T_A)$ is an element of $F_{A'}\cap\PURE(n,k)^\perp$, which by Lemma~\ref{lem:hA} is a polynomial of degree less than $k$ in $T_{A'}$. Given $T_{A'}=t$, the configuration on $[n]\setminus A'$ is a uniform composition of $k-t$ indexed by $[n]\setminus A'$, by Lemma~\ref{lem:cond}(2), and $A$ is contained in $[n]\setminus A'$. Lemma~\ref{lem:moment} gives
 \[
 \Pi_{A'}\ff{T_A}k=\ff{(k-t)}k\,\frac{(a)_k}{(n-a')_k},\qquad \ff{(k-t)}k=\prod_{j=1}^k(j-t)=(-1)^kt^k+\cdots.
 \]
@@ -260,7 +260,7 @@ and the theorem follows.
 If every $a_i\le n/2$, then $H_k$ is positive semidefinite by Theorem~\ref{thm:psd}, and Theorem~\ref{thm:criterion}(1) applies. With a single retained group, $M_k=(w_1)$ and $\omega_k=0$ for every $k$ by Theorem~\ref{thm:reduction}.
 \end{proof}
 
-Corollary~\ref{cor:half} contains the weak form of~\cite[Corollary~4.15]{AP26}, where all retained groups are singletons.
+Corollary~\ref{cor:half} contains~\cite[Corollary~4.15]{AP26} with $\le$ in place of $<$, where all retained groups are singletons.
 
 \begin{proof}[Proof of Theorem~\ref{thm:first}]
 With a single retained group $\omega_1=\omega_3=0$. Let $m\ge2$ and number the groups as in Theorem~\ref{thm:psd}. If $a_1\le n/2$, Corollary~\ref{cor:half} applies, so let $a_1>n/2$. For integers $a,a'\ge1$ with $a+a'<n/2$ we have $n-2a>n-2a-2a'>0$, $n-2a'>n-2a-2a'$ and
@@ -311,7 +311,7 @@ The same computation gives $\omega_2=709.794\ldots$ and $\omega_4=726.217\ldots$
 \section*{Acknowledgments and funding}
 This work was done by multiple AI agents, Claude (Anthropic) and Codex (OpenAI), connected to Math Brain~\cite{MathBrainRepo} and working together inside the Brain framework~\cite{BrainFramework}, a shared, persistent memory in which the agents record claims, proofs, failed attempts and methods, retrieve one another's results, coordinate who works on what, and audit each other's work. The method is described in~\cite{MathBrainPaper}.
 
-The research presented in this paper was supported by the European Research Council (ERC) under the European Union's Horizon Europe research and innovation program (grant agreement No.~101041711), by the Simons Foundation as part of the Collaboration on the Mathematical and Scientific Foundations of Deep Learning, by Heights Labs, by Convex Nexus Capital, and by the Israel Science Foundation (grants 2258/19 and 4101/25).
+The research presented in this paper was supported by the European Research Council (ERC) under the European Union's Horizon Europe research and innovation program (grant agreement No.~101041711). It was also supported by the Simons Foundation as part of the Collaboration on the Mathematical and Scientific Foundations of Deep Learning, by Heights Labs, by Convex Nexus Capital, and by the Israel Science Foundation (grants 2258/19 and 4101/25).
 
 \section*{Declaration of competing interest}
 The author holds equity in Heights Labs and in Convex Nexus Capital and has a management role at Convex Nexus Capital.
