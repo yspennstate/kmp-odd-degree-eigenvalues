@@ -28,7 +28,7 @@
 \begin{document}
 
 \begin{abstract}
-For a weighted hypergraph on $n$ vertices, let $\omega_k$ be the smallest eigenvalue of the discrete Kipnis--Marchioro--Presutti Laplacian with $k$ particles on the orthogonal complement of the image of the space of $k-1$ particles. Alon and Puder conjectured that $\omega_1\le\omega_3\le\omega_5\le\cdots$ and $\omega_2\le\omega_4\le\cdots$ for every hypergraph; Caputo, Quattropani and Sau proved the even chain. We show that the odd chain fails: on eleven vertices, three hyperedges with weights $17$, $715$, $715$ give $\omega_3=2915/4>\omega_5$. When the complements $[n]\setminus B$ of the hyperedges $B$ are pairwise disjoint, $\omega_k$ is the total weight minus the largest eigenvalue of an explicit matrix with one row per hyperedge. For odd $k$ the inequality $\omega_k\le\omega_{k+2}$ then holds for all weights exactly when an explicit inequality between the sizes of the complements holds. For $k=1$ this inequality always holds, so that $\omega_1\le\omega_3$ for all these hypergraphs.
+For a weighted hypergraph on $n$ vertices, let $\omega_k$ be the smallest eigenvalue of the discrete Kipnis--Marchioro--Presutti Laplacian with $k$ particles on the orthogonal complement of the image of the space of $k-1$ particles. Alon and Puder conjectured that $\omega_1\le\omega_3\le\omega_5\le\cdots$ (the odd chain) and $\omega_2\le\omega_4\le\cdots$ (the even chain) for every hypergraph; Caputo, Quattropani and Sau proved the even chain. We show that the odd chain fails: on eleven vertices, three hyperedges with weights $17$, $715$, $715$ give $\omega_3=2915/4>\omega_5$. When the complements $[n]\setminus B$ of the hyperedges $B$ are pairwise disjoint, $\omega_k$ is the total weight minus the largest eigenvalue of an explicit matrix with one row per hyperedge. For odd $k$ the inequality $\omega_k\le\omega_{k+2}$ then holds for all weights exactly when an explicit inequality between the sizes of the complements holds. For $k=1$ this inequality always holds, so that $\omega_1\le\omega_3$ for all these hypergraphs.
 \end{abstract}
 
 \maketitle
@@ -46,7 +46,7 @@ where $\MS(n,k)$ is the real vector space with the $k$-multisets as an orthonorm
 for the smallest eigenvalue that is new in degree $k$.
 
 \begin{conj}[{Alon and Puder~\cite[Conjecture~4.16]{AP26}}]\label{conj:AP}
-For every hypergraph $\Gamma$ with non-negative weights, $\omega_1\le\omega_3\le\omega_5\le\cdots$ and $\omega_2\le\omega_4\le\omega_6\le\cdots$.
+For every hypergraph $\Gamma$ with non-negative weights, $\omega_1\le\omega_3\le\omega_5\le\cdots$ (the odd chain) and $\omega_2\le\omega_4\le\omega_6\le\cdots$ (the even chain).
 \end{conj}
 
 Alon and Puder proved both chains, with strict inequalities when $\Gamma$ is connected and $n\ge3$, for hypergraphs whose weight sits on sets of size $n-1$~\cite[Corollary~4.15]{AP26}. Caputo, Quattropani and Sau~\cite{CQS26} work with continuous exchange models that carry a positive parameter at each vertex; when every vertex parameter equals one, their pure degree-$k$ gaps, the gaps on the spaces of~\cite[(1.21)]{CQS26}, are the numbers $\omega_k$. They proved $\omega_k\ge\omega_{k-1}$ for odd $k\ge3$ and $\omega_k\ge\omega_{k-2}$ for even $k\ge4$~\cite[Remark~2.10, (2.50)]{CQS26}, which gives the even chain for every hypergraph~\cite[(2.51)]{CQS26}. Their main theorem~\cite[Theorem~1.1]{CQS26} says that the spectral gap of these models is attained on polynomials of degree at most two; when every vertex parameter equals one this settles~\cite[Conjecture~1.15]{AP26}. They also showed that the odd chain fails on complete graphs with $n\ge7$ vertices when every vertex parameter is a constant below $1-6/n$~\cite[Remark~2.10]{CQS26}, and the odd chain with every vertex parameter equal to one stayed open. Theorem~\ref{thm:example} shows that it fails there too, at the step from $\omega_3$ to $\omega_5$.
@@ -66,10 +66,10 @@ The complements of the three hyperedges of this example, $\{1,\dots,9\}$, $\{10\
 \end{equation}
 
 \begin{thm}\label{thm:reduction}
-Let $\Gamma$ and $M_k$ be as in~\eqref{eq:M}, with disjoint retained groups $A_1,\dots,A_m$ and weights $w_1,\dots,w_m$. For every $k\ge1$ the eigenvalues of $M_k$ are real and $\omega_k(\Gamma)=W-\lambda_{\max}(M_k)$.
+Let $\Gamma$ be the hypergraph defined before~\eqref{eq:M} and $M_k$ the matrix~\eqref{eq:M}. For every $k\ge1$ the eigenvalues of $M_k$ are real and $\omega_k(\Gamma)=W-\lambda_{\max}(M_k)$.
 \end{thm}
 
-When the retained groups are singletons, $\Gamma$ is supported on sets of size $n-1$, the off-diagonal entries of $M_k$ are $(-1)^kw_i\binom{n+k-2}{k}^{-1}$, and $WI-M_k$ is the matrix denoted $M_k$ in~\cite[Proposition~4.8]{AP26}. In general $M_k$ is similar to the symmetric matrix $G_k=D^{1/2}R_kD^{1/2}$, where $D=\mathrm{diag}(w_1,\dots,w_m)$ and
+When the retained groups are singletons, $\Gamma$ is supported on sets of size $n-1$, the off-diagonal entries of $M_k$ are $(-1)^kw_i\binom{n+k-2}{k}^{-1}$, and, when every set of size $n-1$ has positive weight, $WI-M_k$ agrees with the matrix denoted $M_k$ in~\cite[Proposition~4.8]{AP26}. In general $M_k$ is similar to the symmetric matrix $G_k=D^{1/2}R_kD^{1/2}$, where $D=\mathrm{diag}(w_1,\dots,w_m)$ and
 \begin{equation}\label{eq:R}
 \begin{gathered}(R_k)_{ii}=1,\qquad (R_k)_{ij}=(-1)^kt_it_j\quad(i\ne j),\\ t_i=t_i(k)=\Bigl(\frac{(a_i)_k}{(n-a_i)_k}\Bigr)^{1/2}.\end{gathered}
 \end{equation}
@@ -81,18 +81,18 @@ so that
 \begin{equation}\label{eq:schur}
 G_{k+2}=G_k\circ H_k,\qquad (H_k)_{ii}=1,\quad (H_k)_{ij}=u_iu_j\ (i\ne j),
 \end{equation}
-where $\circ$ is the entrywise (Schur) product. Since $u_i\le1$ exactly when $a_i\le n/2$, the matrix $H_k=\mathrm{diag}(1-u_i^2)+uu^{\mathsf T}$ is positive semidefinite when every retained group has at most $n/2$ vertices, which covers the case of Alon and Puder. At most one retained group can have more than $n/2$ vertices; then $H_k$ may fail to be positive semidefinite, and for odd $k$ this is exactly when the inequality $\omega_k\le\omega_{k+2}$ can fail.
+where $\circ$ is the entrywise (Schur) product. Since $u_i\le1$ exactly when $a_i\le n/2$, the matrix $H_k=\mathrm{diag}(1-u_i^2)+uu^{\mathsf T}$, with $u=(u_1,\dots,u_m)$, is positive semidefinite when every retained group has at most $n/2$ vertices, which covers the case of Alon and Puder. Their proof is different: when the retained groups are singletons the matrix depends on $k$ only through the single number $(-1)^k\binom{n+k-2}{k}^{-1}$, and Alon and Puder derive the chains from the strict monotonicity of its largest eigenvalue in that number~\cite[\S4.1]{AP26}. For groups of different sizes the numbers $t_i(k)$ depend on $i$, there is no single parameter, and the identity~\eqref{eq:schur} takes the place of that monotonicity argument; it gives the inequalities in weak form. At most one retained group can have more than $n/2$ vertices; then $H_k$ may fail to be positive semidefinite, and for odd $k$ this is exactly when the inequality $\omega_k\le\omega_{k+2}$ can fail.
 
 \begin{thm}\label{thm:criterion}
 Fix $n$, $k\ge1$ and the sizes $a_1,\dots,a_m$ of $m\ge2$ disjoint retained groups.
 \begin{enumerate}
-\item If $H_k$ is positive semidefinite, then $\omega_k(\Gamma)\le\omega_{k+2}(\Gamma)$ for every choice of the weights $w_1,\dots,w_m>0$.
-\item If $k$ is odd and $H_k$ is not positive semidefinite, then the weights $w_i=(1+t_i(k)^2)^{-1}$ give $\omega_{k+2}(\Gamma)<\omega_k(\Gamma)$.
+\item If the matrix $H_k$ of~\eqref{eq:schur} is positive semidefinite, then $\omega_k(\Gamma)\le\omega_{k+2}(\Gamma)$ for every hypergraph $\Gamma$ defined before~\eqref{eq:M} with retained groups of these sizes and every choice of the weights $w_1,\dots,w_m>0$.
+\item If $k$ is odd and $H_k$ is not positive semidefinite, then the weights $w_i=(1+t_i(k)^2)^{-1}$, with $t_i(k)$ as in~\eqref{eq:R}, give $\omega_{k+2}(\Gamma)<\omega_k(\Gamma)$ for every such $\Gamma$.
 \end{enumerate}
 \end{thm}
 
 \begin{thm}\label{thm:psd}
-In the setting of Theorem~\ref{thm:criterion}, number the groups so that $a_1\ge a_2\ge\dots\ge a_m$, and for $0\le a<n/2$ put $\theta_k(a)=(a+k)(a+k+1)/(n-2a)$. Then $H_k$ is positive semidefinite if and only if either $a_1\le n/2$, or $a_1>n/2$ and
+In the setting of Theorem~\ref{thm:criterion}, number the retained groups so that $a_1\ge a_2\ge\dots\ge a_m$, and for $0\le a<n/2$ put $\theta_k(a)=(a+k)(a+k+1)/(n-2a)$. Then $H_k$ is positive semidefinite if and only if either $a_1\le n/2$, or $a_1>n/2$ and
 \[
 \sum_{i=2}^m\theta_k(a_i)\le\theta_k(n-a_1).
 \]
@@ -101,7 +101,7 @@ In the setting of Theorem~\ref{thm:criterion}, number the groups so that $a_1\ge
 For odd $k$, Theorems~\ref{thm:criterion} and~\ref{thm:psd} together decide from $n$, $k$ and the sizes $a_i$ alone whether some weights give $\omega_{k+2}<\omega_k$.
 
 \begin{cor}\label{cor:half}
-If every retained group has at most $n/2$ vertices, then $\omega_k\le\omega_{k+2}$ for all $k\ge1$ and all weights.
+If $\Gamma$ is a hypergraph defined before~\eqref{eq:M} and every retained group has at most $n/2$ vertices, then $\omega_k(\Gamma)\le\omega_{k+2}(\Gamma)$ for all $k\ge1$ and all weights.
 \end{cor}
 
 For $k=1$ the inequality of Theorem~\ref{thm:psd} always holds.
@@ -111,7 +111,7 @@ For all disjoint nonempty proper subsets $A_1,\dots,A_m$ of $[n]$ and all weight
 \end{thm}
 
 \begin{cor}\label{cor:family}
-Let $n\ge4$ and let the retained groups have sizes $n-2$, $1$, $1$. For odd $k$ there are weights with $\omega_{k+2}<\omega_k$ if and only if $k(n-6)>n+2$. In particular every odd step $k\to k+2$ with $k\ge3$ can fail on eleven vertices, the step $3\to5$ fails for these sizes exactly when $n\ge11$, and every odd step from $k=11$ on fails already on seven vertices.
+Let $n\ge4$ and let the retained groups have sizes $n-2$, $1$, $1$. For odd $k$ there are weights with $\omega_{k+2}<\omega_k$ if and only if $k(n-6)>n+2$. In particular, for $n=11$ and every odd $k\ge3$ some weights give $\omega_{k+2}<\omega_k$; for $k=3$ such weights exist exactly when $n\ge11$; and for $n=7$ they exist exactly when $k\ge11$.
 \end{cor}
 
 Theorem~\ref{thm:example} is the case $n=11$, $k=3$ of Corollary~\ref{cor:family}: here the weights of Theorem~\ref{thm:criterion}(2) are $(4/169,\,220/221,\,220/221)$, which are proportional to $(17,715,715)$. Whether $\omega_1\le\omega_3$ holds for every hypergraph is open.
@@ -194,12 +194,14 @@ Let $A$ and $A'$ be disjoint nonempty proper subsets of $[n]$ with $a$ and $a'$ 
 \end{enumerate}
 \end{lem}
 
+For $A=\{y\}$ and $A'=\{x\}$, $h_A$ is a multiple of the vector $g_{k,y}$ of Alon and Puder~\cite[Lemma~4.5]{AP26}, and part~(1) is~\cite[Lemma~4.6]{AP26}.
+
 \begin{proof}
-(1) By Lemma~\ref{lem:cond}(2), $\Pi_{A'}\hat h_A$ lies in $F_{A'}$, and it lies in $\PURE(n,k)$ because $\Pi_{A'}$ preserves that space; by Lemma~\ref{lem:hA} it equals $c\,\hat h_{A'}$ for some $c$. Write $\hat h_A=\ff{T_A}k+q(T_A)$ with $q$ of degree less than $k$. Then $q(T_A)\in\PURE(n,k)^\perp$, and so $\Pi_{A'}q(T_A)$ is an element of $F_{A'}\cap\PURE(n,k)^\perp$, which by Lemma~\ref{lem:hA} is a polynomial of degree less than $k$ in $T_{A'}$. Given $T_{A'}=t$, the configuration on $[n]\setminus A'$ is a uniform composition of $k-t$ with $n-a'$ parts, by Lemma~\ref{lem:cond}(2), and $A$ is contained in $[n]\setminus A'$. Lemma~\ref{lem:moment} gives
+(1) By Lemma~\ref{lem:cond}(2), $\Pi_{A'}\hat h_A$ lies in $F_{A'}$, and it lies in $\PURE(n,k)$ because $\Pi_{A'}$ preserves that space; by Lemma~\ref{lem:hA} it equals $\gamma\,\hat h_{A'}$ for some $\gamma\in\R$. Write $\hat h_A=\ff{T_A}k+q(T_A)$ with $q$ of degree less than $k$. Then $q(T_A)\in\PURE(n,k)^\perp$, and so $\Pi_{A'}q(T_A)$ is an element of $F_{A'}\cap\PURE(n,k)^\perp$, which by Lemma~\ref{lem:hA} is a polynomial of degree less than $k$ in $T_{A'}$. Given $T_{A'}=t$, the configuration on $[n]\setminus A'$ is a uniform composition of $k-t$ with $n-a'$ parts, by Lemma~\ref{lem:cond}(2), and $A$ is contained in $[n]\setminus A'$. Lemma~\ref{lem:moment} gives
 \[
 \Pi_{A'}\ff{T_A}k=\ff{(k-t)}k\,\frac{(a)_k}{(n-a')_k},\qquad \ff{(k-t)}k=\prod_{j=1}^k(j-t)=(-1)^kt^k+\cdots.
 \]
-Comparing the coefficients of $t^k$ in $\Pi_{A'}\hat h_A=c\,\hat h_{A'}$ gives $c=(-1)^k(a)_k/(n-a')_k$.
+Comparing the coefficients of $t^k$ in $\Pi_{A'}\hat h_A=\gamma\,\hat h_{A'}$ gives $\gamma=(-1)^k(a)_k/(n-a')_k$.
 
 (2) By Lemma~\ref{lem:cond}(1), $N_Ag=\bar g(T_A)$ lies in $F_A$, and it lies in $\PURE(n,k)$; so $N_Ag=\gamma h_A$ for some $\gamma\in\R$. Since $N_A$ is self-adjoint and fixes $h_A$, we get $\gamma\langle h_A,h_A\rangle=\langle g,N_Ah_A\rangle$, and this equals $\langle g,h_A\rangle=0$. Hence $\bar g=0$, and $\Pi_{A'}g=\mathbb E[\bar g(T_A)\mid T_{A'}]=0$ by Lemma~\ref{lem:cond}(2).
 \end{proof}
@@ -225,21 +227,21 @@ The functions $\hat h_i$ can be linearly dependent; this happens for instance wh
 \section{The criterion}\label{sec:criterion}
 
 \begin{proof}[Proof of Theorem~\ref{thm:criterion}]
-By~\eqref{eq:R} and~\eqref{eq:u}, $t_i(k+2)=u_it_i(k)$, so $R_{k+2}=R_k\circ H_k$ and $G_{k+2}=G_k\circ H_k$, where $\circ$ is the entrywise (Schur) product. Let $\lambda=\lambda_{\max}(G_k)$.
+By~\eqref{eq:R} and~\eqref{eq:u}, $t_i(k+2)=u_it_i(k)$, so $R_{k+2}=R_k\circ H_k$, which gives~\eqref{eq:schur}. Let $\lambda=\lambda_{\max}(G_k)$.
 
 (1) The matrix $\lambda I-G_k$ is positive semidefinite, and so is $H_k$. By the Schur product theorem~\cite[Theorem~7.5.3]{HJ13} so is $(\lambda I-G_k)\circ H_k=\lambda I-G_{k+2}$, where we used that $H_k$ has ones on the diagonal. Hence $\lambda_{\max}(G_{k+2})\le\lambda$, and $\omega_{k+2}\ge\omega_k$ by Theorem~\ref{thm:reduction}.
 
-(2) Let $k$ be odd and $w_i=(1+t_i^2)^{-1}$ with $t_i=t_i(k)$. Then $R_k=\mathrm{diag}(1+t_i^2)-tt^{\mathsf T}$ and $G_k=I-vv^{\mathsf T}$ with $v_i=t_i(1+t_i^2)^{-1/2}$. Since $m\ge2$, the eigenvalue $1$ of $G_k$ occurs on $v^\perp\ne0$, and $\lambda_{\max}(G_k)=1$. Further $G_{k+2}=(I-vv^{\mathsf T})\circ H_k=I-\mathrm{diag}(v)H_k\,\mathrm{diag}(v)$. All $v_i$ are nonzero, so $\mathrm{diag}(v)H_k\,\mathrm{diag}(v)$ has a negative eigenvalue, $\lambda_{\max}(G_{k+2})>1$, and $\omega_{k+2}<\omega_k$.
+(2) Let $k$ be odd and $w_i=(1+t_i^2)^{-1}$ with $t_i=t_i(k)$. Then $R_k=\mathrm{diag}(1+t_i^2)-tt^{\mathsf T}$ with $t=(t_1,\dots,t_m)$ and $G_k=I-vv^{\mathsf T}$ with $v_i=t_i(1+t_i^2)^{-1/2}$. Since $m\ge2$, the eigenvalue $1$ of $G_k$ occurs on $v^\perp\ne0$, and $\lambda_{\max}(G_k)=1$. Further $G_{k+2}=(I-vv^{\mathsf T})\circ H_k=I-\mathrm{diag}(v)H_k\,\mathrm{diag}(v)$. All $v_i$ are nonzero, so $\mathrm{diag}(v)H_k\,\mathrm{diag}(v)$ has a negative eigenvalue, $\lambda_{\max}(G_{k+2})>1$, and $\omega_{k+2}<\omega_k$.
 \end{proof}
 
 For even $k$ no weights give $\omega_{k+2}<\omega_k$, by the even chain~\cite[Remark~2.10, (2.51)]{CQS26}, even when $H_k$ is not positive semidefinite; this happens for instance for $k=4$ and the sizes $9,1,1$ on eleven vertices.
 
 \begin{proof}[Proof of Theorem~\ref{thm:psd}]
-Write $\delta_i=1-u_i^2$, so that $H_k=\mathrm{diag}(\delta_1,\dots,\delta_m)+uu^{\mathsf T}$. With $p=n-a_i+k$ and $q=a_i+k$ we have $p(p+1)-q(q+1)=(p-q)(p+q+1)$, and~\eqref{eq:u} gives
+Write $\delta_i=1-u_i^2$, so that $H_k=\mathrm{diag}(\delta_1,\dots,\delta_m)+uu^{\mathsf T}$. For all $p$ and $q$ we have $p(p+1)-q(q+1)=(p-q)(p+q+1)$; with $p=n-a_i+k$ and $q=a_i+k$,~\eqref{eq:u} gives
 \begin{equation}\label{eq:d}
 \delta_i=\frac{(n-2a_i)(n+2k+1)}{(n-a_i+k)(n-a_i+k+1)}.
 \end{equation}
-If $a_1\le n/2$, all $\delta_i\ge0$, and $H_k$ is a sum of two positive semidefinite matrices. Let $a_1>n/2$. Since the groups are disjoint, $a_i\le n-a_1<n/2$ for $i\ge2$, so $\delta_1<0<\delta_i$ for $i\ge2$, and the numbers $\theta_k(a_i)$ for $i\ge2$ and $\theta_k(n-a_1)$ are defined and positive. For $z\in\R^m$ with $z_1=0$ and $z\ne0$ we have $z^{\mathsf T}H_kz\ge\sum_{i\ge2}\delta_iz_i^2>0$. Hence $H_k$ has at most one eigenvalue $\le0$: eigenvectors for two such eigenvalues would span a plane on which the quadratic form of $H_k$ is $\le0$, and this plane meets the hyperplane $\{z_1=0\}$ in a nonzero vector. So $H_k$ is positive semidefinite exactly when $\det H_k\ge0$. Since $\mathrm{diag}(\delta)^{-1}uu^{\mathsf T}$ has rank one and trace $\sum_iu_i^2/\delta_i$,
+If $a_1\le n/2$, all $\delta_i\ge0$, and $H_k$ is a sum of two positive semidefinite matrices. Let $a_1>n/2$. Since the retained groups are disjoint, $a_i\le n-a_1<n/2$ for $i\ge2$, so $\delta_1<0<\delta_i$ for $i\ge2$, and the numbers $\theta_k(a_i)$ for $i\ge2$ and $\theta_k(n-a_1)$ are defined and positive. For $z\in\R^m$ with $z_1=0$ and $z\ne0$ we have $z^{\mathsf T}H_kz\ge\sum_{i\ge2}\delta_iz_i^2>0$. Hence $H_k$ has at most one eigenvalue $\le0$: eigenvectors for two such eigenvalues would span a plane on which the quadratic form of $H_k$ is $\le0$, and this plane meets the hyperplane $\{z_1=0\}$ in a nonzero vector. So $H_k$ is positive semidefinite exactly when $\det H_k\ge0$. Since $\mathrm{diag}(\delta)^{-1}uu^{\mathsf T}$ has rank one and trace $\sum_iu_i^2/\delta_i$,
 \[
 \det H_k=\Bigl(\prod_{i=1}^m\delta_i\Bigr)\Bigl(1+\sum_{i=1}^m\frac{u_i^2}{\delta_i}\Bigr),
 \]

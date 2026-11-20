@@ -5,7 +5,7 @@ Yitzchak Shmalo
 For a weighted hypergraph on $n$ vertices let $\omega_k$ be the smallest eigenvalue of the discrete
 Kipnis-Marchioro-Presutti Laplacian with $k$ particles on the orthogonal complement of the image of the space of
 $k-1$ particles. Alon and Puder conjectured that $\omega_1\le\omega_3\le\omega_5\le\cdots$ and
-$\omega_2\le\omega_4\le\cdots$; Caputo, Quattropani and Sau proved the even chain. The paper shows that the odd chain
+$\omega_2\le\omega_4\le\cdots$; Caputo, Quattropani and Sau proved the even chain. The odd chain
 fails: on eleven vertices, three hyperedges with weights 17, 715, 715 give $\omega_3=2915/4>\omega_5$.
 
 When the complements of the hyperedges are pairwise disjoint, $\omega_k$ is the total weight minus the largest
